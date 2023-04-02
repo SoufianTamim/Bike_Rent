@@ -1,0 +1,5 @@
+analyse for the project :
+    - send email to clients after subition
+    - scan national ID
+    - choose time for take / return 
+    - calculate price and validate it 
