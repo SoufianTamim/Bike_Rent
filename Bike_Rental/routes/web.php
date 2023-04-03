@@ -40,3 +40,7 @@ Route::get('/gallery', function () {
 Route::get('/bikes', function () {
     return view('bikes');
 })->name('bikes');
+
+Route::get('/sbike', function () {
+    return view('sbike');
+})->name('sbike');

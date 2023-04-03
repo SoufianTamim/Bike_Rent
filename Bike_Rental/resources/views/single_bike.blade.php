@@ -1,80 +1,10 @@
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-    <meta charset="UTF-8">
-    <title>T-BIKE</title>
-    <!-- =================== META =================== -->
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="assets/img/favicon.png">
-    <!-- =================== STYLE =================== -->
-    <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-
-<body id="home">
-    <!--================ PRELOADER ================-->
-    <div class="preloader-cover">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <!--============== PRELOADER END ==============-->
-    <!-- =================== HEADER =================== -->
-        <header class="header">
-        <a href="#" class="nav-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-        <div class="top-panel">
-            <div class="container">
-                <div class="top-panel-cover">
-                    <ul class="header-cont">
-                        <li><a href="tel:+212677846064"><i class="fa fa-phone"></i>+212677846064</a></li>
-                        <li><a href="mailto:soufiantamim22@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>soufiantamim22@gmail.com</a></li>
-                    </ul>
-                    <ul class="icon-right-list">
-                        <li><a class="header-like" href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>6</span></a></li>
-                        <li><a class="header-user" href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        <li><a class="header-cart" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="container">
-                <a href="{{ route('index') }}" class="logo"><img src="assets/img/logo.svg" alt="logo"></a>
-                <nav class="nav-menu">
-                    <ul class="nav-list">
-                        <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                        <li><a href="rent.html">Rent</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contacts.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        </header>
-    <!-- =================== HEADER END =================== -->
-
+@include('layout.header')
 	<!-- ================ HEADER-TITLE ================ -->
 	<section class="s-header-title">
 		<div class="container">
 			<h1>Shop</h1>
 			<ul class="breadcrambs">
-				<li><a href="{{ route('index') }}">Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li>Shop</li>
 			</ul>
 		</div>
@@ -269,7 +199,7 @@
 						</ul>
 						<div class="reviews-form">
 							<h3 class="title">Leave a Comment</h3>
-							<form action="https://html.soufian.com/">
+							<form action="/">
 								<ul class="form-cover">
 									<li class="inp-name"><input type="text" name="your-name" placeholder="Name"></li>
 									<li class="inp-email"><input type="email" name="your-email" placeholder="E-mail"></li>
@@ -322,14 +252,14 @@
 							<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 						</ul>
-						<a href="single-rent.html" class="product-img"><img src="assets/img/prod-1.png" alt="product"></a>
+						<a href="single-shop.html" class="product-img"><img src="assets/img/prod-1.png" alt="product"></a>
 						<div class="product-item-cover">
 							<div class="price-cover">
 								<div class="new-price">$1.699</div>
 								<div class="old-price">$1.799</div>
 							</div>
-							<h6 class="prod-title"><a href="single-rent.html">Granite Peak 24" <br>Girls Mountain Bike</a></h6>
-							<a href="single-rent.html" class="btn"><span>buy now</span></a>
+							<h6 class="prod-title"><a href="single-shop.html">Granite Peak 24" <br>Girls Mountain Bike</a></h6>
+							<a href="single-shop.html" class="btn"><span>buy now</span></a>
 						</div>
 						<div class="prod-info">
 							<ul class="prod-list">
@@ -348,13 +278,13 @@
 							<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 						</ul>
-						<a href="single-rent.html" class="product-img"><img src="assets/img/prod-2.png" alt="product"></a>
+						<a href="single-shop.html" class="product-img"><img src="assets/img/prod-2.png" alt="product"></a>
 						<div class="product-item-cover">
 							<div class="price-cover">
 								<div class="new-price">$1.699</div>
 							</div>
-							<h6 class="prod-title"><a href="single-rent.html">Hyper E-Ride Bike 700C <br>20+ Mile Range</a></h6>
-							<a href="single-rent.html" class="btn"><span>buy now</span></a>
+							<h6 class="prod-title"><a href="single-shop.html">Hyper E-Ride Bike 700C <br>20+ Mile Range</a></h6>
+							<a href="single-shop.html" class="btn"><span>buy now</span></a>
 						</div>
 						<div class="prod-info">
 							<ul class="prod-list">
@@ -373,13 +303,13 @@
 							<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 						</ul>
-						<a href="single-rent.html" class="product-img"><img src="assets/img/prod-4.png" alt="product"></a>
+						<a href="single-shop.html" class="product-img"><img src="assets/img/prod-4.png" alt="product"></a>
 						<div class="product-item-cover">
 							<div class="price-cover">
 								<div class="new-price">$1.699</div>
 							</div>
-							<h6 class="prod-title"><a href="single-rent.html">New Spring Beach Cruiser <br>Bicycle Chrome</a></h6>
-							<a href="single-rent.html" class="btn"><span>buy now</span></a>
+							<h6 class="prod-title"><a href="single-shop.html">New Spring Beach Cruiser <br>Bicycle Chrome</a></h6>
+							<a href="single-shop.html" class="btn"><span>buy now</span></a>
 						</div>
 						<div class="prod-info">
 							<ul class="prod-list">
@@ -399,14 +329,14 @@
 							<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 						</ul>
-						<a href="single-rent.html" class="product-img"><img src="assets/img/prod-3.png" alt="product"></a>
+						<a href="single-shop.html" class="product-img"><img src="assets/img/prod-3.png" alt="product"></a>
 						<div class="product-item-cover">
 							<div class="price-cover">
 								<div class="new-price">$1.699</div>
 								<div class="old-price">$1.799</div>
 							</div>
-							<h6 class="prod-title"><a href="single-rent.html">Lightweight M370-27speed <br>Aluminum Alloy Mantis</a></h6>
-							<a href="single-rent.html" class="btn"><span>buy now</span></a>
+							<h6 class="prod-title"><a href="single-shop.html">Lightweight M370-27speed <br>Aluminum Alloy Mantis</a></h6>
+							<a href="single-shop.html" class="btn"><span>buy now</span></a>
 						</div>
 						<div class="prod-info">
 							<ul class="prod-list">
@@ -440,13 +370,13 @@
 				<div class="footer-item col-md-5 col-lg-4">
 					<h6>info</h6>
 					<ul class="footer-list">
-						<li><a href="rent.html">FAQ</a></li>
-						<li><a href="rent.html">Contacts</a></li>
-						<li><a href="rent.html">Shipping + Heading</a></li>
-						<li><a href="rent.html">Exchanges</a></li>
-						<li><a href="rent.html">2019 Catalog</a></li>
-						<li><a href="rent.html">Returns</a></li>
-						<li><a href="rent.html">Search</a></li>
+						<li><a href="shop.html">FAQ</a></li>
+						<li><a href="shop.html">Contacts</a></li>
+						<li><a href="shop.html">Shipping + Heading</a></li>
+						<li><a href="shop.html">Exchanges</a></li>
+						<li><a href="shop.html">2019 Catalog</a></li>
+						<li><a href="shop.html">Returns</a></li>
+						<li><a href="shop.html">Search</a></li>
 					</ul>
 				</div>
 			</div>
@@ -454,26 +384,26 @@
 				<div class="footer-touch col-md-7 col-lg-8">
 					<h6>stay in touch</h6>
 					<ul class="footer-soc social-list">
-						<li><a target="_blank" href="https://www.facebook.com/soufian"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a target="_blank" href="https://twitter.com/SoufianStudio"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a target="_blank" href="https://www.instagram.com/soufian"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-						<li><a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+						<li><a target="_blank" href="https://www.facebook.com/rovadex"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a target="_blank" href="https://twitter.com/RovadexStudio"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a target="_blank" href="https://www.instagram.com/rovadex"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li><a target="_blank" href="https://www.youtube.com"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
 					</ul>
-					<div class="footer-autor">Questions? Please write us at: <a href="mailto:soufiantamim22@gmail.com">soufiantamim22@gmail.com</a></div>
+					<div class="footer-autor">Questions? Please write us at: <a href="mailto:rovadex@gmail.com">rovadex@gmail.com</a></div>
 				</div>
 				<div class="footer-item col-md-5 col-lg-4">
 					<h6>shop</h6>
 					<ul class="footer-list">
-						<li><a href="rent.html">Road Bike</a></li>
-						<li><a href="rent.html">City Bike</a></li>
-						<li><a href="rent.html">Mountain Bike</a></li>
-						<li><a href="rent.html">Kids Bike</a></li>
-						<li><a href="rent.html">BMX Bike</a></li>
+						<li><a href="shop.html">Road Bike</a></li>
+						<li><a href="shop.html">City Bike</a></li>
+						<li><a href="shop.html">Mountain Bike</a></li>
+						<li><a href="shop.html">Kids Bike</a></li>
+						<li><a href="shop.html">BMX Bike</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<div class="footer-copyright"><a target="_blank" href="">Soufian</a> © 2019. All Rights Reserved.</div>
+				<div class="footer-copyright"><a target="_blank" href="https://rovadex.com">Rovadex</a> © 2019. All Rights Reserved.</div>
 				<ul class="footer-pay">
 					<li><a href="#"><img src="assets/img/footer-pay-1.png" alt="img"></a></li>
 					<li><a href="#"><img src="assets/img/footer-pay-2.png" alt="img"></a></li>
@@ -497,7 +427,7 @@
 	<div class="popup popup-action1 popup-wideo">
 		<div class="popup-close close_vid"></div>
 		<div class="popup-video">
-			<iframe src="https://www.youtube.com/embed/XHOmBV4js_E?enablejsapi=1&amp;rel=0&amp;showinfo=0;" allowfullscreen  id="video-modal"></iframe>
+			<iframe src="https://www.youtube.com/embed/XHOmBV4js_E?enablejsapi=1&rel=0&amp;showinfo=0;" allowfullscreen  id="video-modal"></iframe>
 		</div>
 	</div>
 	<!--================ POPUP VIDEO END ================-->
@@ -509,5 +439,4 @@
 	<script src="assets/js/jquery.fancybox.js"></script>
 	<script src="assets/js/scripts.js"></script>
 </body>
-
 </html>

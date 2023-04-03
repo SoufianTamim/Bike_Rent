@@ -54,7 +54,7 @@
         </div>
         <div class="header-menu">
             <div class="container">
-                <a href="index-2.html" class="logo"><img src="../img/favicon.png" alt="logo"></a>
+                <a href="{{ route('index') }}" class="logo"><img src="../img/favicon.png" alt="logo"></a>
                 <nav class="nav-menu">
                     <ul class="nav-list">
                         <li class="active"><a href="{{ route('index') }}">Home</a></li>

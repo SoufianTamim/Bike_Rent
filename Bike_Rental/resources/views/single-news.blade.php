@@ -1,121 +1,22 @@
-<!DOCTYPE html>
-<html lang="zxx">
-
-
-<head>
-    <meta charset="UTF-8">
-    <title>T-BIKE</title>
-    <!-- =================== META =================== -->
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="assets/img/favicon.png">
-    <!-- =================== STYLE =================== -->
-    <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-
-<body id="home">
-    <!--================ PRELOADER ================-->
-    <div class="preloader-cover">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <!--============== PRELOADER END ==============-->
-    <!-- =================== HEADER =================== -->
-        <header class="header">
-        <a href="#" class="nav-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-        <div class="top-panel">
-            <div class="container">
-                <div class="top-panel-cover">
-                    <ul class="header-cont">
-                        <li><a href="tel:+212677846064"><i class="fa fa-phone"></i>+212677846064</a></li>
-                        <li><a href="mailto:soufiantamim22@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>soufiantamim22@gmail.com</a></li>
-                    </ul>
-                    <ul class="icon-right-list">
-                        <li><a class="header-like" href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>6</span></a></li>
-                        <li><a class="header-user" href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        <li><a class="header-cart" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="container">
-                <a href="index-2.html" class="logo"><img src="assets/img/logo.svg" alt="logo"></a>
-                <nav class="nav-menu">
-                    <ul class="nav-list">
-                        <li class="active"><a href="index-2.html">Home</a></li>
-                        <li><a href="rent.html">Rent</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contacts.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        </header>
-    <!-- =================== HEADER END =================== -->
-
+@include('layout.header')
 	<!-- ================ HEADER-TITLE ================ -->
 	<section class="s-header-title">
 		<div class="container">
-			<h1>News</h1>
+			<h1>Duis aute irure dolor</h1>
 			<ul class="breadcrambs">
-				<li><a href="index-2.html">Home</a></li>
-				<li>News</li>
+				<li><a href="{{ route('index') }}">Home</a></li>
+				<li>Duis aute irure dolor</li>
 			</ul>
 		</div>
 	</section>
 	<!-- ============== HEADER-TITLE END ============== -->
 
-	<!--===================== S-NEWS =====================-->
-	<section class="s-news">
+	<!--================ S-NEWS ================-->
+	<section class="s-news s-single-blog">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-lg-8 blog-cover">
 					<div class="post-item-cover">
-						<h4 class="title title-line-left"><a href="single-news.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
-						<div class="post-header">
-							<div class="post-thumbnail">
-								<a href="single-news.html">
-									<img src="assets/img/blog-1.jpg" alt="img">
-								</a>
-							</div>
-							<div class="meta">
-								<span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</span>
-								<span class="post-by"><i class="fa fa-user" aria-hidden="true"></i>By <a href="#">Samson</a></span>
-								<span class="post-category">Category: <a href="#">Coaching</a><a href="#">Lorem</a></span>
-							</div>
-						</div>
-						<div class="post-content">
-							<div class="text">
-								<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.</p>
-							</div>
-						</div>
-						<div class="post-footer">
-							<div class="meta">
-								<span class="post-comment"><a href="#">Comments 2</a></span>
-								<span class="post-tags">Tags: <a href="#">Lorem</a><a href="#">Dorem</a></span>
-							</div>
-							<a href="single-news.html" class="btn"><span>more</span></a>
-						</div>
-					</div>
-					<div class="post-item-cover">
-						<h4 class="title title-line-left"><a href="single-news.html">Duis aute irure dolor in reprehenderit in</a></h4>
 						<div class="post-header">
 							<div class="post-thumbnail">
 								<a href="single-news.html">
@@ -130,7 +31,13 @@
 						</div>
 						<div class="post-content">
 							<div class="text">
-								<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.</p>
+								<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
+								<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences.</p>
+								<blockquote>
+									<p>“At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias”</p>
+									<cite><a href="#">Kerry Ashman</a></cite>
+								</blockquote>
+								<p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.</p>
 							</div>
 						</div>
 						<div class="post-footer">
@@ -138,50 +45,79 @@
 								<span class="post-comment"><a href="#">Comments 2</a></span>
 								<span class="post-tags">Tags: <a href="#">Lorem</a><a href="#">Dorem</a></span>
 							</div>
-							<a href="single-news.html" class="btn"><span>more</span></a>
 						</div>
 					</div>
-					<div class="post-item-cover">
-						<blockquote>
-							<p>“At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias”</p>
-							<cite>by <a href="#">Kerry Ashman</a></cite>
-						</blockquote>
-					</div>
-					<div class="post-item-cover">
-						<div class="post-header">
-							<h4 class="title title-line-left"><a href="single-news.html">sed do eiusmod tempor incididunt ut labore et</a></h4>
-							<div class="meta">
-								<span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</span>
-								<span class="post-by"><i class="fa fa-user" aria-hidden="true"></i>By <a href="#">Samson</a></span>
-								<span class="post-category">Category: <a href="#">Coaching</a><a href="#">Lorem</a></span>
-							</div>
-						</div>
-						<div class="post-content">
-							<div class="text">
-								<p>Ultricies tristique nulla aliquet enim tortor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Et leo duis ut diam quam nulla. Cras pulvinar mattis nunc sed blandit libero volutpat. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. </p>
-							</div>
-						</div>
-						<div class="post-footer">
-							<div class="meta">
-								<span class="post-comment"><a href="#">Comments 2</a></span>
-								<span class="post-tags">Tags: <a href="#">Lorem</a><a href="#">Dorem</a></span>
-							</div>
-							<a href="single-news.html" class="btn"><span>more</span></a>
+					<!--=============== AUTOR-COVER ===============-->
+					<div class="autor-cover">
+						<img src="assets/img/autor-img.png" alt="img">
+						<div class="autor-content">
+							<div class="name">Samson Peters</div>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
 						</div>
 					</div>
-					<div class="pagination-cover">
-						<ul class="pagination">
-							<li class="pagination-item item-prev"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-							<li class="pagination-item active"><a href="#">1</a></li>
-							<li class="pagination-item"><a href="#">2</a></li>
-							<li class="pagination-item"><a href="#">3</a></li>
-							<li class="pagination-item"><a href="#">4</a></li>
-							<li class="pagination-item"><a href="#">5</a></li>
-							<li class="pagination-item item-next"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+					<!--============= AUTOR-COVER END =============-->
+					<!--================ NAVIGATION ================-->
+					<div class="navigation">
+						<a href="#" class="navigation-item navigation-left">
+							<span>previous</span>
+							<div class="title">Sed ut perspiciatis unde</div>
+						</a>
+						<a href="#" class="navigation-item navigation-right">
+							<span>next</span>
+							<div class="title">Sed ut perspiciatis unde</div>
+						</a>
+					</div>
+					<!--============== NAVIGATION END ==============-->
+					<div class="reviews">
+						<h2 class="title">Comments</h2>
+						<ul class="reviews-list">
+							<li class="item">
+								<div class="review-item">
+									<div class="review-avatar"><img src="assets/img/testimonials-1.png" alt="img"></div>
+									<div class="review-content">
+										<div class="name">Sam Piters</div>
+										<div class="date">Dec 26, 2019</div>
+										<p class="review-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis cupiditate vel dicta animi nostrum delectus at doloremque nam eligendi unde! Nulla temporibus ut, libero, architecto tempora impedit ipsa mollitia unde.</p>
+										<a href="#" class="review-btn"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
+									</div>
+								</div>
+								<ul class="child">
+									<li class="item">
+										<div class="review-item">
+											<div class="review-avatar"><img src="assets/img/testimonials-2.png" alt="img"></div>
+											<div class="review-content">
+												<div class="name">Anna Smith</div>
+												<div class="date">Dec 27, 2019</div>
+												<p class="review-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi a cum corporis, minus reprehenderit quo aut at, quas quisquam?</p>
+												<a href="#" class="review-btn"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
 						</ul>
+						<div class="reviews-form">
+							<h2 class="title">Leave a Comment</h2>
+							<form action="https://html.soufian.com/">
+								<ul class="form-cover">
+									<li class="inp-name"><input type="text" name="your-name" placeholder="Name"></li>
+									<li class="inp-email"><input type="email" name="your-email" placeholder="E-mail"></li>
+									<li class="inp-text"><textarea name="your-text" placeholder="Message"></textarea></li>
+								</ul>
+								<div class="checkbox-wrap">
+									<div class="checkbox-cover">
+										<input type="checkbox">
+										<p>By using this form you agree with the storage and handling of your data by this website.</p>
+									</div>
+								</div>
+								<div class="btn-form-cover">
+									<button type="submit" class="btn"><span>submit comment</span></button>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
-				<!--================= SIDEBAR =================-->
+				<!--============== SIDEBAR ==============-->
 				<div class="col-12 col-lg-4 sidebar">
 					<a href="#" class="btn btn-sidebar"><span>Widgets</span></a>
 					<ul class="widgets">
@@ -290,11 +226,11 @@
 						<!--======== WIDGET-NEWSLETTER END ========-->
 					</ul>
 				</div>
-				<!--=============== SIDEBAR END ===============-->
+				<!--============ SIDEBAR END ============-->
 			</div>
 		</div>
 	</section>
-	<!--=================== S-NEWS END ===================-->
+	<!--============== S-NEWS END ==============-->
 
 	<!--==================== FOOTER ====================-->
 	<footer>
@@ -356,7 +292,6 @@
 		</div>
 	</footer>
 	<!--================== FOOTER END ==================-->
-
 
 	<!--=================== TO TOP ===================-->
 	<a class="to-top" href="#home">
