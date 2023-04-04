@@ -3,7 +3,6 @@
 @include('layout.filter')
 @include('layout.bike_parts')
 @include('layout.advantages')
-@include('layout.news')
 @include('layout.clients')
 @include('layout.feedback')
 @include('layout.banner')

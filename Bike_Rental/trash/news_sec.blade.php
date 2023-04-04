@@ -4,10 +4,10 @@
 			<div class="row">
 				<div class="col-12 col-lg-8 blog-cover">
 					<div class="post-item-cover">
-						<h4 class="title title-line-left"><a href="single-news.html">Lorem ipsum dolor sit amet, consectetur</a></h4>
+						<h4 class="title title-line-left"><a href="{{ route('snews') }}">Lorem ipsum dolor sit amet, consectetur</a></h4>
 						<div class="post-header">
 							<div class="post-thumbnail">
-								<a href="single-news.html">
+								<a href="{{ route('snews') }}">
 									<img src="../img/blog-1.jpg" alt="img">
 								</a>
 							</div>
@@ -27,14 +27,14 @@
 								<span class="post-comment"><a href="#">Comments 2</a></span>
 								<span class="post-tags">Tags: <a href="#">Lorem</a><a href="#">Dorem</a></span>
 							</div>
-							<a href="single-news.html" class="btn"><span>more</span></a>
+							<a href="{{ route('snews') }}" class="btn"><span>more</span></a>
 						</div>
 					</div>
 					<div class="post-item-cover">
-						<h4 class="title title-line-left"><a href="single-news.html">Duis aute irure dolor in reprehenderit in</a></h4>
+						<h4 class="title title-line-left"><a href="{{ route('snews') }}">Duis aute irure dolor in reprehenderit in</a></h4>
 						<div class="post-header">
 							<div class="post-thumbnail">
-								<a href="single-news.html">
+								<a href="{{ route('snews') }}">
 									<img src="../img/blog-2.jpg" alt="img">
 								</a>
 							</div>
@@ -54,7 +54,7 @@
 								<span class="post-comment"><a href="#">Comments 2</a></span>
 								<span class="post-tags">Tags: <a href="#">Lorem</a><a href="#">Dorem</a></span>
 							</div>
-							<a href="single-news.html" class="btn"><span>more</span></a>
+							<a href="{{ route('snews') }}" class="btn"><span>more</span></a>
 						</div>
 					</div>
 					<div class="post-item-cover">
@@ -65,7 +65,7 @@
 					</div>
 					<div class="post-item-cover">
 						<div class="post-header">
-							<h4 class="title title-line-left"><a href="single-news.html">sed do eiusmod tempor incididunt ut labore et</a></h4>
+							<h4 class="title title-line-left"><a href="{{ route('snews') }}">sed do eiusmod tempor incididunt ut labore et</a></h4>
 							<div class="meta">
 								<span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>Dec 26, 2019</span>
 								<span class="post-by"><i class="fa fa-user" aria-hidden="true"></i>By <a href="#">Samson</a></span>
@@ -82,7 +82,7 @@
 								<span class="post-comment"><a href="#">Comments 2</a></span>
 								<span class="post-tags">Tags: <a href="#">Lorem</a><a href="#">Dorem</a></span>
 							</div>
-							<a href="single-news.html" class="btn"><span>more</span></a>
+							<a href="{{ route('snews') }}" class="btn"><span>more</span></a>
 						</div>
 					</div>
 					<div class="pagination-cover">

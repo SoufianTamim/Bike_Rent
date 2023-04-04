@@ -14,13 +14,13 @@
             <div class="footer-item col-md-5 col-lg-4">
                 <h6>info</h6>
                 <ul class="footer-list">
-                    <li><a href="rent.html">FAQ</a></li>
-                    <li><a href="rent.html">Contact</a></li>
-                    <li><a href="rent.html">Term of Use</a></li>
-                    <li><a href="rent.html">Exchanges</a></li>
-                    <li><a href="rent.html">Catalog</a></li>
-                    <li><a href="rent.html">Returns</a></li>
-                    <li><a href="rent.html">Search</a></li>
+                    <li><a href="{{ route('bikes') }}">FAQ</a></li>
+                    <li><a href="{{ route('bikes') }}">Contact</a></li>
+                    <li><a href="{{ route('bikes') }}">Term of Use</a></li>
+                    <li><a href="{{ route('bikes') }}">Exchanges</a></li>
+                    <li><a href="{{ route('bikes') }}">Catalog</a></li>
+                    <li><a href="{{ route('bikes') }}">Returns</a></li>
+                    <li><a href="{{ route('bikes') }}">Search</a></li>
                 </ul>
             </div>
         </div>
@@ -38,11 +38,11 @@
             <div class="footer-item col-md-5 col-lg-4">
                 <h6>shop</h6>
                 <ul class="footer-list">
-                    <li><a href="rent.html">Road Bike</a></li>
-                    <li><a href="rent.html">City Bike</a></li>
-                    <li><a href="rent.html">Mountain Bike</a></li>
-                    <li><a href="rent.html">Kids Bike</a></li>
-                    <li><a href="rent.html">BMX Bike</a></li>
+                    <li><a href="{{ route('bikes') }}">Road Bike</a></li>
+                    <li><a href="{{ route('bikes') }}">City Bike</a></li>
+                    <li><a href="{{ route('bikes') }}">Mountain Bike</a></li>
+                    <li><a href="{{ route('bikes') }}">Kids Bike</a></li>
+                    <li><a href="{{ route('bikes') }}">BMX Bike</a></li>
                 </ul>
             </div>
         </div>
@@ -64,14 +64,34 @@
 </a>
 <!--=================== TO TOP END ===================-->
 <!--==================== SCRIPT	====================-->
-<script src="{{ asset('js/jquery.nice-select.js') }}"></script>
+<?php
+use Illuminate\Support\Facades\Route;
+$routeName = Route::currentRouteName();
+?>
+@if ($routeName === 'index')
+<script src="{{ asset('/js/jquery-2.2.4.min.js')}}"></script>
+<script src="{{ asset('/js/slick.min.js')}}"></script>
+<script src="{{ asset('/js/jquery.nice-select.js')}}"></script>
+<script src="{{ asset('/js/wow.js')}}"></script>
+<script src="{{ asset('/js/rx-lazy.js')}}"></script>
+<script src="{{ asset('/js/scripts.js')}}"></script>
+@elseif ($routeName === 'sbike' || $routeName === 'gallery' )
 <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
-<script src="{{ asset('js/jquery.fancybox.js') }}"></script>
-<script src="{{ asset('js/isotope.pkgd.js') }}"></script>
 <script src="{{ asset('js/slick.min.js') }}"></script>
-<script src="{{ asset('js/rx-lazy.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js')}}"></script>
+<script src="{{ asset('js/jquery.nice-select.js') }}"></script>
+<script src="{{ asset('js/isotope.pkgd.js') }}"></script>
+<script src="{{ asset('js/jquery.fancybox.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
-<script src="{{ asset('js/wow.js') }}"></script>
-<script src="{{ asset('js/wow.js') }}"></script>
+@else
+    <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('js/isotope.pkgd.js') }}"></script>
+    <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.nice-select.js') }}"></script>
+    <script src="{{ asset('js/wow.js') }}"></script>
+    <script src="{{ asset('js/rx-lazy.js') }}"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
+@endif
 </body>
 </html>

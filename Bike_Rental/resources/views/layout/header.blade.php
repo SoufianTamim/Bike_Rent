@@ -10,30 +10,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="../img/favicon.png">
     <!-- =================== STYLE =================== -->
-    <link rel="stylesheet" href="{{ asset('css/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.css') }}">
 
+    
+<?php
+use Illuminate\Support\Facades\Route;
 
+$routeName = Route::currentRouteName();
 
+?>
+
+    @if ($routeName === 'index' )
+	<link rel="stylesheet" href="{{ asset('/css/bootstrap-grid.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/slick.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/nice-select.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/style.css') }}"> 
+    @elseif ($routeName === 'gallery' )
+    <link rel="stylesheet" href="{{asset('css/bootstrap-grid.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.fancybox.css')}}">   
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    @elseif ($routeName === 'sbike')
+    <link rel="stylesheet" href="{{asset('css/slick.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-grid.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.fancybox.css')}}">   
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    @else
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.fancybox.css')}}">   
+    <link rel="stylesheet" href="{{asset('css/bootstrap-grid.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('css/slick.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    @endif
     <!-- =================== END STYLE =================== -->
 </head>
 
 <body id="home">
     <!--================ PRELOADER ================-->
-    {{-- <div class="preloader-cover">
+    <div class="preloader-cover">
         <div class="preloader">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
         </div>
-    </div> --}}
+    </div>
     <!--============== PRELOADER END ==============-->
     <!-- =================== HEADER =================== -->
         <header class="header">
@@ -66,7 +94,6 @@
                         <li><a href="{{ route('bikes') }}">bikes</a></li>
                         <li><a href="{{ route('gallery') }}">Gallery</a></li>
                         <li><a href="{{ route('about') }}">About Us</a></li>
-                        <li><a href="{{ route('news') }}">News</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>
                 </nav>
