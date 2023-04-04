@@ -72,5 +72,6 @@
 <script src="{{ asset('js/rx-lazy.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script src="{{ asset('js/wow.js') }}"></script>
+<script src="{{ asset('js/wow.js') }}"></script>
 </body>
 </html>

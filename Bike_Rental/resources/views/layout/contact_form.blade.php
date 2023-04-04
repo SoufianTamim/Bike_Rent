@@ -2,7 +2,7 @@
 	<section class="s-contacts page-contacts">
 		<div class="container s-anim">
 			<h2 class="title">Contact us</h2>
-			<form id='contactform' action="https://html.soufian.com/html-creto/../php/contact.php" name="contactform">
+			<form id='contactform' action="" name="contactform">
 				<ul class="form-cover">
 					<li class="inp-name"><input id="name" type="text" name="your-name" placeholder="Name"></li>
 					<li class="inp-phone"><input id="phone" type="tel" name="your-phone" placeholder="Phone"></li>

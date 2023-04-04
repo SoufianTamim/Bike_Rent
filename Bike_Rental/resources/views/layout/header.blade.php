@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.css') }}">
+
+
+
     <!-- =================== END STYLE =================== -->
 </head>
 

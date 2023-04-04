@@ -37,7 +37,7 @@
                         <option>BMC</option>
                     </select>
                 </li>
-                <li><a href="rent.html" class="btn"><span>search</span></a></li>
+                <li><a href="{{ route('bikes')}}" class="btn"><span>search</span></a></li>
             </ul>
         </form>
     </div>

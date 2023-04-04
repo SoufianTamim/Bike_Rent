@@ -42,5 +42,5 @@ Route::get('/bikes', function () {
 })->name('bikes');
 
 Route::get('/sbike', function () {
-    return view('sbike');
+    return view('single_bike');
 })->name('sbike');

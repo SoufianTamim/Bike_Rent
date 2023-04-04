@@ -69,7 +69,7 @@
 						<div class="baner-item-content">
 							<h2>our discount program</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmmpor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="single-rent.html" class="btn"><span>read more</span></a>
+							<a href="{{ route('sbike') }}" class="btn"><span>read more</span></a>
 							<div class="banner-sale-cover">
 								<div class="banner-sale">30% off</div>
 								<p>Lorem ipsum dolor sit amet</p>
@@ -104,15 +104,15 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-1.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-1.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 												<div class="old-price">$1.799</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Granite Peak 24" <br>Girls Mountain Bike</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Granite Peak 24" <br>Girls Mountain Bike</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -132,14 +132,14 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-2.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-2.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Hyper E-Ride Bike 700C <br>20+ Mile Range</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Hyper E-Ride Bike 700C <br>20+ Mile Range</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -160,15 +160,15 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-3.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-3.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 												<div class="old-price">$1.799</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Lightweight M370-27speed <br>Aluminum Alloy Mantis</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Lightweight M370-27speed <br>Aluminum Alloy Mantis</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -188,14 +188,14 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-4.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-4.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">New Spring Beach Cruiser <br>Bicycle Chrome</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">New Spring Beach Cruiser <br>Bicycle Chrome</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -215,14 +215,14 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-5.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-5.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Granite Peak 24" <br>Girls Mountain Bike</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Granite Peak 24" <br>Girls Mountain Bike</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -242,14 +242,14 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-6.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-6.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Aluminum and Fork <br>Mountain Sr-26omg</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Aluminum and Fork <br>Mountain Sr-26omg</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -269,14 +269,14 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-7.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-7.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Steel Frame MTB Bike <br>with 21 Speed</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Steel Frame MTB Bike <br>with 21 Speed</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -296,14 +296,14 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-8.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-8.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Leopard Rider No Chain <br>Mountain Bicycle</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Leopard Rider No Chain <br>Mountain Bicycle</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
@@ -324,15 +324,15 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="single-rent.html" class="product-img"><img src="../img/prod-3.png" alt="product"></a>
+									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-3.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
 												<div class="new-price">$1.699</div>
 												<div class="old-price">$1.799</div>
 											</div>
-											<h6 class="prod-title"><a href="single-rent.html">Lightweight M370-27speed <br>Aluminum Alloy Mantis</a></h6>
-											<a href="single-rent.html" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="{{ route('sbike') }}">Lightweight M370-27speed <br>Aluminum Alloy Mantis</a></h6>
+											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
