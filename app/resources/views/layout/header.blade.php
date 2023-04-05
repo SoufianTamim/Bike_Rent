@@ -81,6 +81,7 @@ $routeName = Route::currentRouteName();
                         <li><a class="header-like" href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>6</span></a></li>
                         <li><a class="header-user" href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         <li><a class="header-cart" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -95,6 +96,17 @@ $routeName = Route::currentRouteName();
                         <li><a href="{{ route('gallery') }}">Gallery</a></li>
                         <li><a href="{{ route('about') }}">About Us</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
+                        @if (Route::has('login'))
+                            @auth
+                            <li><a href="{{ url('/dashboard') }}" class="">Dashboard</a></li>
+                            @else
+                            <li><a href="{{ route('login') }}" class="">Log in</a></li>
+        
+                                @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}" class="">Register</a></li>
+                                @endif
+                            @endauth
+                    @endif
                     </ul>
                 </nav>
             </div>
