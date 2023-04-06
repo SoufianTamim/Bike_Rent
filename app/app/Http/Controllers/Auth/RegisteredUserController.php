@@ -28,42 +28,44 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $request->validate([
-            'name'  => ['required', 'string', 'max:255'],
-
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-
+            'fullname'  => ['required', 'string', 'max:255'],
             'cin'   => ['required', 'string', 'max:50', 'unique:'.User::class],
-
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'phone'     => ['required', 'string', 'max:255',  'unique:'.User::class],
             'address'  => ['required', 'string', 'max:255'],
-
-            'phone'     => ['required', 'string', 'max:255', 'phone_number', 'unique:'.User::class],
-
             'birthdate' => ['required', 'string', 'date_format:Y-m-d', 'max:50'],
-
+            'gender' => ['required', 'string'],
             'profile_picture' => ['nullable', 'image', 'max:255'],
-
             'password'  => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ]);
-
-
+    
+        $profile_picture = null;
+    
+        if ($request->hasFile('profile_picture')) {
+            $validated = $request->validate([
+                'profile_picture' => 'required|image|max:2048',
+            ]);
+            $profile_picture = $request->file('profile_picture')->store('public/profile_pictures');
+            $profile_picture = str_replace('public/', 'storage/', $profile_picture);
+        }
+    
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'fullname' => $request->fullname,
             'cin'  => $request->cin,
-            'address' => $request->address,
+            'email' => $request->email,
             'phone' => $request->phone,
+            'address' => $request->address,
             'birthdate' => $request->birthdate,
-            'profile_picture' => $request->profile_picture,
+            'gender' => $request->gender,
+            'profile_picture' => $profile_picture,
             'password' => Hash::make($request->password),
         ]);
-
-        event(new Registered($user));
-
+    
         Auth::login($user);
-
+    
         return redirect(RouteServiceProvider::HOME);
     }
 }
