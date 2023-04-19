@@ -36,6 +36,7 @@
             <x-text-input id="birthdate" class="input" type="date" name="birthdate" :value="old('birthdate')" required autocomplete="username" placeholder="Birthdate" />
             <x-input-error :messages="$errors->get('birthdate')" />
         </div>
+        {{--  ??   =================    add two input at a line  --}}
         <div class="input-field">
             <x-text-input id="profile_picture" class="input" type="file" name="profile_picture" :value="old('profile_picture')" required autocomplete="username" placeholder="Profile Picture" />
             <x-input-error :messages="$errors->get('profile_picture')" />
