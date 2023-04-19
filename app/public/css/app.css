@@ -17,7 +17,7 @@ body{
     min-height: 90vh;
 }
 .container{
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     padding: 0 15px 0 15px;
@@ -42,6 +42,16 @@ header{
     justify-content: center;
     padding: 10px 0 10px 0;
 }
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3;
+}
+.w-25{
+    width: 45%;
+    margin-right: 20px;
+}
 
 .input-field .input{
     height: 45px;
@@ -56,10 +66,10 @@ header{
     margin: 10px;
 }
 i{
-    position: relative;
-    top: -33px;
-    left: 17px;
-    color: #fff;
+position: relative;
+top: 2px;
+left: -705px;
+color: #fff;
 }
 ::-webkit-input-placeholder{
     color: #fff;
@@ -70,7 +80,7 @@ i{
     font-size: 15px;
     height: 45px;
     outline: none;
-    width: 100%;
+    width: 94%;
     color: black;
     background: rgba(255,255,255,0.7);
     cursor: pointer;
@@ -96,9 +106,8 @@ label a{
 }
 
 #gender {
-    width: 100%;
+    width: 93%;
 }   
-
 
 input[type=file]::file-selector-button {
     margin-top: 9px;
