@@ -16,7 +16,6 @@
         @csrf
         <header>Register</header>
         <div class="flex-row">
-
         {{-- fullname --}}
         <div class="input-field w-25">
             <x-text-input id="fullname" class="input" type="text" name="fullname" :value="old('fullname')" required autofocus  placeholder="Full Name" />
@@ -29,7 +28,6 @@
         </div>
         </div>
         <div class="flex-row">
-
         {{-- Email --}}
         <div class="input-field w-25">
             <x-text-input id="email" class="input" type="email" name="email" :value="old('email')" required  placeholder="Email" />
@@ -43,7 +41,6 @@
         </div>
         
         <div class="flex-row">
-
         {{-- address --}}
         <div class="input-field w-25">
             <x-text-input id="address" class="input" type="text" name="address" :value="old('address')" required  placeholder="Address" />
@@ -51,36 +48,28 @@
         </div>
         {{-- birthdate --}}
         <div class="input-field w-25">
-            <x-text-input id="birthdate" class="input" type="date" name="birthdate" :value="old('birthdate')" required  type="text" placeholder="Birth Date"
+            <x-text-input id="birthdate" class="input" type="date" name="birthdate" :value="old('birthdate')"   type="text" placeholder="Birth Date"
                     onfocus="(this.type='date')" />
             <x-input-error :messages="$errors->get('birthdate')" />
         </div>
-
         </div>
-        {{--  ??   =================    add two input at a line  --}}
         <div class="flex-row">
-
         {{-- profile picture  --}}
         <div class="input-field w-25">
-            <x-text-input id="profile_picture" class="input" type="file" placeholder="Add profile picture" name="profile_picture" :value="old('profile_picture')" required  placeholder="Profile Picture" />
+            <x-text-input id="profile_picture" class="input" type="file" placeholder="Add profile picture" name="profile_picture" :value="old('profile_picture')"   placeholder="Profile Picture" />
             <x-input-error :messages="$errors->get('profile_picture')" />
         </div> 
-       
-
-        
          <!-- gender -->
         <div class="input-field w-25">
             <x-select-input id="gender" class="input" name="gender" :options="['male' => 'Male', 'female' => 'Female']" required  placeholder="Gender" />
             <x-input-error :messages="$errors->get('gender')" />
         </div>
         </div>
-        
          <!-- Password -->
          <div class="input-field">
             <x-text-input id="password" class="input"   type="password"  name="password"  required placeholder="Password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
-
         <!-- Confirm Password -->
         <div class="input-field">
             <x-text-input id="password_confirmation" class="input" type="password"   name="password_confirmation" required placeholder="Confirm Password" />
