@@ -10,13 +10,13 @@
 
         <div class="input-field">
             <x-text-input id="login" class="input" type="text" name="login" :value="old('login')" required autofocus placeholder="Email / Phone / Full Name" />
-            <i class='bx bx-user'></i>
+            {{-- <i class='bx bx-user'></i> --}}
             <x-input-error :messages="$errors->get('login')" />
         </div>
 
         <div class="input-field">
             <x-text-input id="password" class="input" type="password" name="password" placeholder="Password" required />
-            <i class='bx bx-lock-alt'></i>
+            {{-- <i class='bx bx-lock-alt'></i> --}}
             <x-input-error :messages="$errors->get('password')" />
         </div>
 

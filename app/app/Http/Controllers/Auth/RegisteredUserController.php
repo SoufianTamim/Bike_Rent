@@ -36,9 +36,9 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'phone'     => ['required', 'string', 'max:255',  'unique:'.User::class],
             'address'  => ['required', 'string', 'max:255'],
-            'birthdate' => ['required', 'string', 'date_format:Y-m-d', 'max:50'],
+            'birthdate' => ['required', 'date'],
+            'profile_picture' => ['image', 'mimes:jpeg,jpg,png,gif', 'max:2048'],
             'gender' => ['required', 'string'],
-            'profile_picture' => ['nullable', 'image', 'max:255'],
             'password'  => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ]);
     
@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
     
         if ($request->hasFile('profile_picture')) {
             $validated = $request->validate([
-                'profile_picture' => 'required|image|max:2048',
+                'profile_picture' => 'image','max:2048', 'mimes:jpeg,jpg,png,gif'
             ]);
             $profile_picture = $request->file('profile_picture')->store('public/profile_pictures');
             $profile_picture = str_replace('public/', 'storage/', $profile_picture);
@@ -60,7 +60,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'birthdate' => $request->birthdate,
             'gender' => $request->gender,
-            'profile_picture' => $profile_picture,
+            'profile_picture' => $request->$profile_picture,
             'password' => Hash::make($request->password),
         ]);
     
