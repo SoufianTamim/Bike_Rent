@@ -28,6 +28,7 @@ class User extends Authenticatable
         'profile_picture',
         'password',     
     ];
+    protected $primaryKey = 'user_id';
 
     /**
      * The attributes that should be hidden for serialization.

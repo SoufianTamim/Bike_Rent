@@ -14,48 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
+//  =========================================================================================
+//  ========================= EVERY ROUTE IS AS THE SAME   ==================================
+//  ========================= AS IN THE VIEWS/RESSOURCES   ==================================
+//  =================================== DIRECTORY ===========================================
+//  =========================================================================================
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
-
-Route::get('/404', function () {
-    return view('404');
-})->name('404');
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-Route::get('/news', function () {
-    return view('news');
-})->name('news');
-
-Route::get('/gallery', function () {
-    return view('gallery');
-})->name('gallery');
-
-Route::get('/bikes', function () {
-    return view('bikes');
-})->name('bikes');
-
-
-Route::get('/sbike', function () {
-    return view('single_bike');
-})->name('sbike');
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', function () { return view('index'); })->name('index');
+Route::get('/404', function () { return view('404'); })->name('404');
+Route::get('/about', function () {  return view('about'); })->name('about');
+Route::get('/contact', function () { return view('contact'); })->name('contact');
+Route::get('/news', function () { return view('news'); })->name('news');
+Route::get('/gallery', function () { return view('gallery'); })->name('gallery');
+Route::get('/bikes', function () { return view('bikes'); })->name('bikes');
+Route::get('/sbike', function () { return view('single_bike'); })->name('sbike');
+Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

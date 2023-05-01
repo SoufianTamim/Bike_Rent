@@ -92,7 +92,7 @@ color: #fff;
 .two-col{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     color: #fff;
     font-size: small;
     margin-top: 15px;

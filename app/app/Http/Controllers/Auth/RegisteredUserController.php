@@ -37,20 +37,20 @@ class RegisteredUserController extends Controller
             'phone'     => ['required', 'string', 'max:255',  'unique:'.User::class],
             'address'  => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'date'],
-            'profile_picture' => ['image', 'mimes:jpeg,jpg,png,gif', 'max:2048'],
+            'profile_picture' => [],
             'gender' => ['required', 'string'],
             'password'  => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ]);
     
         $profile_picture = null;
     
-        if ($request->hasFile('profile_picture')) {
-            $validated = $request->validate([
-                'profile_picture' => 'image','max:2048', 'mimes:jpeg,jpg,png,gif'
-            ]);
-            $profile_picture = $request->file('profile_picture')->store('public/profile_pictures');
-            $profile_picture = str_replace('public/', 'storage/', $profile_picture);
-        }
+        // if ($request->hasFile('profile_picture')) {
+        //     $validated = $request->validate([
+        //         'profile_picture' => 'image','max:2048', 'mimes:jpeg,jpg,png,gif'
+        //     ]);
+        //     $profile_picture = $request->file('profile_picture')->store('public/profile_pictures');
+        //     $profile_picture = str_replace('public/', 'storage/', $profile_picture);
+        // }
     
         $user = User::create([
             'fullname' => $request->fullname,
