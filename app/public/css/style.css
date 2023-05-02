@@ -7964,14 +7964,29 @@ body {
     border-bottom: 1px solid #ddd;
     border-radius: 0;
     color: #333;
+    cursor: pointer;
 }
+
+.nav-pills  a.logout:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  transition: all 0.3s ease-in-out;
+}
+
 .nav-pills a.nav-link i {
     width: 20px;
 }
+
+
 
 .img-circle img {
     height: 100px;
     width: 100px;
     border-radius: 100%;
     border: 5px solid #fff;
+}
+
+.green{
+    color:green;
 }

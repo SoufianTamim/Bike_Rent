@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}" class="container">
+    <form method="POST" action="{{ route('register') }}" class="container" enctype="multipart/form-data">
         {{-- 
         ==========================================================================
         ==========================================================================
@@ -54,16 +54,17 @@
         </div>
         </div>
         <div class="flex-row">
-        {{-- profile picture  --}}
-        <div class="input-field w-25">
-            <x-text-input id="profile_picture" class="input" type="file" placeholder="Add profile picture" name="profile_picture" :value="old('profile_picture')"   placeholder="Profile Picture" />
-            <x-input-error :messages="$errors->get('profile_picture')" />
-        </div> 
          <!-- gender -->
         <div class="input-field w-25">
             <x-select-input id="gender" class="input" name="gender" :options="['male' => 'Male', 'female' => 'Female']" required  placeholder="Gender" />
             <x-input-error :messages="$errors->get('gender')" />
         </div>
+        {{-- profile picture  --}}
+        <div class="input-field w-25">
+                <input type="file" name="profile_picture" class="input">
+                {{-- <x-text-input id="profile_picture" class="input" type="file" placeholder="Add profile picture" name="profile_picture" :value="old('profile_picture')"   placeholder="Profile Picture" /> --}}
+            <x-input-error :messages="$errors->get('profile_picture')" />
+        </div> 
         </div>
          <!-- Password -->
          <div class="input-field">

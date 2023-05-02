@@ -63,7 +63,7 @@
 					<a href="#" class="reset-filter-btn">Reset Filters</a>
 				</div>
 				<div class="col-12 col-lg-9 shop-cover">
-					<div class="baner-shop">
+					{{-- <div class="baner-shop">
 						<span class="mask"></span>
 						<img src="../img/banner-shop.jpg" alt="img">
 						<div class="baner-item-content">
@@ -75,7 +75,7 @@
 								<p>Lorem ipsum dolor sit amet</p>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 					<h2 class="title">road bike</h2>
 					<div class="shop-sort-cover">
 						<div class="sort-left">120 products found</div>

@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserController extends Controller
 {
@@ -30,6 +32,8 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        $user = null;
+
         $request->validate([
             'fullname'  => ['required', 'string', 'max:255'],
             'cin'   => ['required', 'string', 'max:50', 'unique:'.User::class],
@@ -37,21 +41,24 @@ class RegisteredUserController extends Controller
             'phone'     => ['required', 'string', 'max:255',  'unique:'.User::class],
             'address'  => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'date'],
-            'profile_picture' => [],
+            'profile_picture' => ['image','max:2048', 'mimes:jpeg,jpg,png,gif'],
             'gender' => ['required', 'string'],
             'password'  => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ]);
-    
+
         $profile_picture = null;
-    
-        // if ($request->hasFile('profile_picture')) {
-        //     $validated = $request->validate([
-        //         'profile_picture' => 'image','max:2048', 'mimes:jpeg,jpg,png,gif'
-        //     ]);
-        //     $profile_picture = $request->file('profile_picture')->store('public/profile_pictures');
-        //     $profile_picture = str_replace('public/', 'storage/', $profile_picture);
-        // }
-    
+
+        if ($request->hasFile('profile_picture')) {
+            $validated = $request->validate([
+                'profile_picture' => 'image','max:2048', 'mimes:jpeg,jpg,png,gif'
+            ]);
+
+            $profile_picture = $request->file('profile_picture');
+            $filename = $profile_picture->getClientOriginalName();
+            $path = $profile_picture->storeAs('public/profile_pictures', $filename);
+            $profile_picture_url = Storage::url($path);
+        }
+
         $user = User::create([
             'fullname' => $request->fullname,
             'cin'  => $request->cin,
@@ -60,12 +67,15 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'birthdate' => $request->birthdate,
             'gender' => $request->gender,
-            'profile_picture' => $request->$profile_picture,
+            'profile_picture' => $profile_picture_url ?? null,
             'password' => Hash::make($request->password),
         ]);
-    
+
         Auth::login($user);
-    
-        return redirect(RouteServiceProvider::HOME);
+
+        // return redirect(RouteServiceProvider::HOME);
+        
+        return redirect()->intended(route('profile.edit'));
+
     }
 }

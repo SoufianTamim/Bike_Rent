@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('/news', function () { return view('news'); })->name('news');
 Route::get('/gallery', function () { return view('gallery'); })->name('gallery');
 Route::get('/bikes', function () { return view('bikes'); })->name('bikes');
 Route::get('/sbike', function () { return view('single_bike'); })->name('sbike');
-Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/profile', function () { return view('profile'); })->middleware(['auth', 'verified'])->name('profile');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

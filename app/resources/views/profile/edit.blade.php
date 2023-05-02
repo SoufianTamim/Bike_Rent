@@ -1,29 +1,77 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+{{-- ========================================================================================= --}}
+{{-- ========================= EVERYTHIN CONTAINES THE INCLUDE IS  =========================== --}}
+{{-- ========================= IN THE LAYOUT IN THE RESSOURCES  ============================== --}}
+{{-- =================================== DIRECTORY =========================================== --}}
+{{-- ========================================================================================= --}}
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+@include('layout.header')
+@include('layout.dash_title')
+	<section class="py-5 my-5">
+		<div class="container">
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="profile-tab-nav border-right">
+					<div class="p-4">
+						{{-- ================================== profile picture ==================================== --}}
+						<div class="img-circle text-center mb-3">
+							@if (auth()->check() && auth()->user()->profile_picture)
+							{{-- <img src={{"file:///Applications/XAMPP/xamppfiles/htdocs/cc/Bike_Rent/app/storage/app/public/profile_pictures/about-2.jpg" }} alt="Profile Picture"> --}}
+							{{-- <img src="{{ asset(auth()->user()->profile_picture_url) }}" alt="{{ auth()->user()->fullname }} profile picture" class="shadow"> --}}
+							@else
+								<img src="{{asset('img/user.png')}}" alt="{{ auth()->user()->fullname }} profile picture" class="shadow">
+							@endif
+						</div>
+						{{-- ================================== Full user name  ==================================== --}}
+						<h4 class="text-center">
+							@if (auth()->check())
+								{{ auth()->user()->fullname }}
+							@endif
+						</h4>
+						{{-- ================================== side nav links  ==================================== --}}
+					</div>
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<i class="fa fa-home text-center mr-1"></i> 
+							Account
+						</a>
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i> 
+							Password
+						</a>
+						<a class="nav-link" id="rentals-tab" data-toggle="pill" href="#rentals" role="tab" aria-controls="rentals" aria-selected="false">
+							<i class="fa fa-user text-center mr-1"></i> 
+							Rentals
+						</a>
+						{{-- <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+							<i class="fa fa-tv text-center mr-1"></i> 
+							Application
+						</a> --}}
+						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+							<i class="fa fa-bell text-center mr-1"></i> 
+							Notification
+						</a>
+						<form method="POST" action="{{ route('logout') }}" id="form">
+							@csrf
+							<a  :href="route('logout')" class="nav-link logout " data-toggle="pill"  id="notification-tab"  onclick="event.preventDefault(); this.closest('form').submit();">
+							<i class="fa fa-sign-out text-center mr-1"></i>
+								Log Out
+							</a>
+						</form>
+					</div>
+				</div>
+				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+
+
+
+
+				{{-- ================================== update profile infos ================================= --}}
+				@include('profile.partials.update-profile-information-form')
+				{{-- ================================== update password   ==================================== --}}
+				@include('profile.partials.update-password-form')
+				{{-- ================================== rentals of user  ===================================== --}}
+				@include('profile.partials.rental-user')
+				{{-- ================================== notifications of user  =============================== --}}
+				@include('profile.partials.notifs-user')
+				{{-- ================================== footer   ============================================= --}}
+				@include('layout.footer')
