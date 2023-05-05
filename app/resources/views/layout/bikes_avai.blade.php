@@ -104,7 +104,7 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="{{ route('sbike') }}" class="product-img"><img src="../img/prod-1.png" alt="product"></a>
+									<a href="" class="product-img"><img src="../img/prod-1.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
@@ -126,7 +126,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-12 col-sm-4 prod-item-col">
+							{{-- <div class="col-12 col-sm-4 prod-item-col">
 								<div class="product-item">
 									<ul class="product-icon-top">
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
@@ -152,7 +152,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<div class="col-12 col-sm-4 prod-item-col">
 								<div class="product-item">
 									<span class="sale">11%</span>

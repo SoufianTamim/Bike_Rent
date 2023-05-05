@@ -69,7 +69,10 @@ class Kernel implements KernelContract
      *
      * @deprecated
      */
-    protected $routeMiddleware = [];
+    protected $routeMiddleware = [
+
+        'checkadmin' => \App\Http\Middleware\CheckAdmin::class,
+    ];
 
     /**
      * The application's middleware aliases.

@@ -20,6 +20,7 @@ return new class () extends Migration {
             $table->date('birthdate');
             $table->boolean('is_admin')->default(false);
             $table->integer('penalities')->default(0);
+            $table->string('status')->default("active");
             $table->enum('gender', ['male', 'female', 'other']);
             $table->string('profile_picture')->nullable();
             $table->timestamp('email_verified_at')->nullable();
