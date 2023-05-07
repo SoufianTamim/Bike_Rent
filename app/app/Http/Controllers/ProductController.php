@@ -23,10 +23,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //== passing props to the form view 
+        //== passing props to the form view
         $flag = "new";
         $route = "/product/create";
-        return view('product.form',['flag'=>$flag, 'route'=>$route]);
+        return view('product.form', ['flag'=>$flag, 'route'=>$route]);
 
     }
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
             'model' => 'required|string|max:255',
             'size' => 'required|string|max:255',
             'weight' => 'required|integer',
-            'available_quantity' => 'required|integer',
+            'speeds_number' => 'required|integer',
             'price' => 'required|integer',
             'location' => 'required|string|max:255',
             'image1' => 'required|image|mimes:jpg,jpeg,png',
@@ -53,7 +53,7 @@ class ProductController extends Controller
             'image4' => 'required|image|mimes:jpg,jpeg,png',
             'description' => 'required',
             'maintenance_history' => 'required',
-            'created_at' => 'required|date',
+            'created_at' => '',
         ]);
 
         $image1 = $request->file('image1')->store('public/productsImages');
@@ -70,7 +70,7 @@ class ProductController extends Controller
             'model' => $request->model,
             'size' => $request->size,
             'weight' => $request->weight,
-            'available_quantity' => $request->available_quantity,
+            'speeds_number' => $request->speeds_number,
             'price' => $request->price,
             'maintenance_history' => $request->maintenance_history,
             'location' => $request->location,
@@ -92,7 +92,7 @@ class ProductController extends Controller
     {
         //
         $product = Product::where('product_id', $id)->first();
-        return view('product.single',['product'=> $product]);
+        return view('product.single', ['product'=> $product]);
     }
 
      /**
@@ -101,11 +101,21 @@ class ProductController extends Controller
     public function single(string $id)
     {
         //
-
         $product = Product::where('product_id', $id)->first();
-        
-        return view('layout.bikes_avai',['product'=> $product]);
+
+        return view('single_bike', ['product'=> $product]);
     }
+
+    public function display()
+    {
+        //
+
+        $products = Product::all();
+        return view('bikes', ['products' => $products]);
+
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -117,7 +127,7 @@ class ProductController extends Controller
         $flag = "modify";
         // $product = Product::find($id);
         $product = Product::where('product_id', $id)->first();
-        return view('product.form',['flag'=>$flag , 'route'=>$route , 'product'=>$product ]);
+        return view('product.form', ['flag'=>$flag , 'route'=>$route , 'product'=>$product ]);
     }
 
     /**
@@ -125,8 +135,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // update the product based on it s id 
-        
+        // update the product based on it s id
+
         $product = Product::where('product_id', $id)->first();
         $image1 = $request->file('image1')->store('public/productsImages');
         $image2 = $request->file('image2')->store('public/productsImages');
@@ -139,7 +149,7 @@ class ProductController extends Controller
         $product->model  = $request->model;
         $product->size  = $request->size;
         $product->weight  = $request->weight;
-        $product->available_quantity  = $request->available_quantity;
+        $product->speeds_number  = $request->speeds_number;
         $product->price  = $request->price;
         $product->maintenance_history  = $request->maintenance_history;
         $product->location  = $request->location;
@@ -148,8 +158,7 @@ class ProductController extends Controller
         $product->image3  = $image3;
         $product->image4  = $image4;
         $product->description  = $request->description;
-        $product->created_at  = $request->created_at;
-
+        $product->updated_at  = $request->updated_at;
         $product->update();
 
         return redirect('/product');

@@ -13,10 +13,10 @@
                 <div class="main-slide-info">
                     <h2 class="title">best bikes for you</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                    <a href="{{ route('sbike') }}" class="btn"><span>rent now</span></a>
+                    <a href="#" class="btn"><span>rent now</span></a>
                 </div>
                 <div class="slide-img-cover">
-                    <a href="{{ route('sbike') }}" class="lable-bike">
+                    <a href="#" class="lable-bike">
                         <div class="lable-bike-img"><img src="../img/bike-info-slide.jpg" alt="img"></div>
                         <div class="lable-bike-item">
                             <div class="model">model SX-200</div>
@@ -33,10 +33,10 @@
                 <div class="main-slide-info">
                     <h2 class="title">best bikes for you</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore consectetur sint iure id expedita saepe.</p>
-                    <a href="{{ route('sbike') }}" class="btn"><span>rent now</span></a>
+                    <a href="#" class="btn"><span>rent now</span></a>
                 </div>
                 <div class="slide-img-cover">
-                    <a href="{{ route('sbike') }}" class="lable-bike">
+                    <a href="#" class="lable-bike">
                         <div class="lable-bike-img"><img src="../img/bike-info-slide.jpg" alt="img"></div>
                         <div class="lable-bike-item">
                             <div class="model">model M-300</div>
@@ -53,10 +53,10 @@
                 <div class="main-slide-info">
                     <h2 class="title">best bikes for you</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis distinctio tenetur ab ut! Qui, facilis.</p>
-                    <a href="{{ route('sbike') }}" class="btn"><span>rent now</span></a>
+                    <a href="#" class="btn"><span>rent now</span></a>
                 </div>
                 <div class="slide-img-cover">
-                    <a href="{{ route('sbike') }}" class="lable-bike">
+                    <a href="#" class="lable-bike">
                         <div class="lable-bike-img"><img src="../img/bike-info-slide.jpg" alt="img"></div>
                         <div class="lable-bike-item">
                             <div class="model">model X-230</div>
@@ -73,10 +73,10 @@
                 <div class="main-slide-info">
                     <h2 class="title">best bikes for you</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                    <a href="{{ route('sbike') }}" class="btn"><span>rent now</span></a>
+                    <a href="#" class="btn"><span>rent now</span></a>
                 </div>
                 <div class="slide-img-cover">
-                    <a href="{{ route('sbike') }}" class="lable-bike">
+                    <a href="#" class="lable-bike">
                         <div class="lable-bike-img"><img src="../img/bike-info-slide.jpg" alt="img"></div>
                         <div class="lable-bike-item">
                             <div class="model">model SX-200</div>
@@ -93,10 +93,10 @@
                 <div class="main-slide-info">
                     <h2 class="title">best bikes for you</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore consectetur sint iure id expedita saepe.</p>
-                    <a href="{{ route('sbike') }}" class="btn"><span>rent now</span></a>
+                    <a href="#" class="btn"><span>rent now</span></a>
                 </div>
                 <div class="slide-img-cover">
-                    <a href="{{ route('sbike') }}" class="lable-bike">
+                    <a href="#" class="lable-bike">
                         <div class="lable-bike-img"><img src="../img/bike-info-slide.jpg" alt="img"></div>
                         <div class="lable-bike-item">
                             <div class="model">model M-300</div>

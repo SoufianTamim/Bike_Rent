@@ -20,7 +20,7 @@
             <th>model</th>
             <th>size</th>
             <th>weight</th>
-            <th>quantity</th>
+            <th>speeds</th>
             <th>price</th>
             <th>maintenance</th>
             <th>location</th>
@@ -37,7 +37,7 @@
             <td>{{ $product->model }}</td>
             <td>{{ $product->size }}</td>
             <td>{{ $product->weight }}</td>
-            <td>{{ $product->available_quantity }}</td>
+            <td>{{ $product->speeds_number }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->maintenance_history }}</td>
             <td>{{ $product->location }}</td>

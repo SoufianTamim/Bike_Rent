@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -21,7 +20,7 @@ return new class extends Migration
             $table->integer('size');
             $table->integer('weight');
             $table->text('maintenance_history');
-            $table->integer('available_quantity');
+            $table->integer('speeds_number');
             $table->float('price');
             $table->string('location');
             $table->string('image1')->nullable();

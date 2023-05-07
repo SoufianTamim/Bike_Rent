@@ -10,17 +10,55 @@
 							<p class="not-product">No products in the cart.</p>
 						</li>
 						<li class="widget wiget-shop-category">
-							<h5 class="title">bikes</h5>
+							<h5 class="title">categories</h5>
 							<ul>
 								<li><p><input type="checkbox" checked><span>Road Bike</span></p></li>
 								<li><p><input type="checkbox"><span>Mountain Bike</span></p></li>
 								<li><p><input type="checkbox"><span>BMX Bike</span></p></li>
 								<li><p><input type="checkbox"><span>City Bike</span></p></li>
 								<li><p><input type="checkbox"><span>Kids Bike</span></p></li>
+								<li><p><input type="checkbox"><span>Safety Products</span></p></li>
 							</ul>
 						</li>
+						<li class="widget wiget-brand">
+							<h5 class="title">Brand</h5>
+							<select class="nice-select">
+								<option>Pinarello</option>
+								<option>Eddy Merckx</option>
+								<option>Specialized</option>
+								<option>Giant</option>
+								<option>Trek</option>
+								<option>BMC</option>
+							</select>
+						</li>
+						<li class="widget wiget-brand">
+							<h5 class="title">condition</h5>
+							<select class="nice-select">
+								<option>new</option>
+								<option>like new</option>
+								<option>excelent</option>
+								<option>good</option>
+								<option>poor</option>
+							</select>
+						</li>
+						<li class="widget wiget-brand">
+							<h5 class="title">Wheel Size</h5>
+							<select class="nice-select">
+								<option>12</option>
+								<option>14</option>
+								<option>16</option>
+								<option>18</option>
+								<option>20</option>
+								<option>22</option>
+								<option>24</option>
+								<option>26</option>
+								<option>27.5</option>
+								<option>29</option>
+							</select>
+						</li>
+						
 						<li class="widget wiget-price">
-							<h5 class="title">price($)</h5>
+							<h5 class="title">price(DH)</h5>
 							<div id="slider-range"></div>
 							<div class="amount-cover">
 								<input type="text" id="amount-min">
@@ -28,25 +66,19 @@
 								<input type="text" id="amount-max">
 							</div>
 						</li>
-						<li class="widget wiget-gender">
-							<h5 class="title">gender</h5>
-							<ul>
-								<li><p><input type="checkbox"><span>Men’s</span></p></li>
-								<li><p><input type="checkbox"><span>Women’s</span></p></li>
-								<li><p><input type="checkbox"><span>Kids</span></p></li>
-							</ul>
+						<li class="widget wiget-price">
+							<h5 class="title">speeds</h5>
+							<div class="amount-cover">
+								<input type="number" min="1" max="20" id="speeds">
+							</div>
 						</li>
-						<li class="widget wiget-brand">
-							<h5 class="title">brand</h5>
-							<ul>
-								<li><p><input type="checkbox"><span>Focus</span></p></li>
-								<li><p><input type="checkbox"><span>Radon</span></p></li>
-								<li><p><input type="checkbox"><span>Cube</span></p></li>
-								<li><p><input type="checkbox"><span>Bikes</span></p></li>
-								<li><p><input type="checkbox"><span>Cruzee</span></p></li>
-							</ul>
+						<li class="widget wiget-price">
+							<h5 class="title">weight</h5>
+							<div class="amount-cover">
+								<input type="number" min="1" max="100" id="weight" width="100px">
+							</div>
 						</li>
-						<li class="widget wiget-color">
+						{{-- <li class="widget wiget-color">
 							<h5 class="title">color</h5>
 							<ul>
 								<li style="background: #f3deca"></li>
@@ -58,8 +90,9 @@
 								<li style="background: #f74440"></li>
 								<li style="background: #e0e44a"></li>
 							</ul>
-						</li>
+						</li> --}}
 					</ul>
+					<a href="{{ route('bikes')}}" class="btn"><span>search</span></a>
 					<a href="#" class="reset-filter-btn">Reset Filters</a>
 				</div>
 				<div class="col-12 col-lg-9 shop-cover">
@@ -78,54 +111,57 @@
 					</div> --}}
 					<h2 class="title">road bike</h2>
 					<div class="shop-sort-cover">
-						<div class="sort-left">120 products found</div>
+						<div class="sort-left">{{ $count = DB::table('products')->count(); }} products found</div>
 						<div class="sort-right">
 							<div class="sort-by">
 								<span class="sort-name">sort by:</span>
 								<select class="nice-select">
-									<option selected="selected" disabled>best selling</option>
+									<option>best renting</option>
 									<option>new product</option>
-									<option>sale product</option>
+									<option>rent product</option>
 								</select>
 							</div>
-							<ul class="sort-form">
+							{{-- <ul class="sort-form">
 								<li data-atr="large"><i class="fa fa-th-large" aria-hidden="true"></i></li>
 								<li data-atr="block" class="active"><i class="fa fa-th" aria-hidden="true"></i></li>
 								<li data-atr="list"><i class="fa fa-list" aria-hidden="true"></i></li>
-							</ul>
+							</ul> --}}
 						</div>
 					</div>
 					<div class="shop-product-cover">
 						<div class="row product-cover block">
+							@foreach ($products as $product)
 							<div class="col-12 col-sm-4 prod-item-col">
 								<div class="product-item">
-									<span class="top-sale">top sale</span>
+									<span class="top-sale">top Rent</span>
 									<ul class="product-icon-top">
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="" class="product-img"><img src="../img/prod-1.png" alt="product"></a>
+									<a href="/product/single/{{$product->product_id}}" class="product-img"><img src="../img/prod-1.png" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">
-												<div class="new-price">$1.699</div>
-												<div class="old-price">$1.799</div>
+												<div class="new-price">{{$product->price }} DH/DAY</div>
+												<div class="old-price">{{$product->price }} DH</div>
 											</div>
-											<h6 class="prod-title"><a href="{{ route('sbike') }}">Granite Peak 24" <br>Girls Mountain Bike</a></h6>
-											<a href="{{ route('sbike') }}" class="btn"><span>RENT NOW</span></a>
+											<h6 class="prod-title"><a href="/product/single/{{$product->product_id}}">{{$product->name }}<br>{{$product->category }}</a></h6>
+											<a href="/product/single/{{$product->product_id}}" class="btn"><span>DETAILS </span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">
-												<li>Frame Size: <span>17</span></li>
-												<li>Class: <span>City</span></li>
+												<li>Category: <span>{{ $product->category }}</span></li>
 												<li>Number of speeds: <span>7</span></li>
-												<li>Type: <span>Rigid</span></li>
-												<li>Country registration: <span>USA</span></li>
+												<li>Wheel Size: <span>{{ $product->size }}</span></li>
+												<li>Condition : <span>{{ $product->condition }}</span></li>
+												<li>Location  : <span>{{ $product->location }}</span></li>
 											</ul>
 										</div>
 									</div>
 								</div>
 							</div>
+
+							@endforeach
 							{{-- <div class="col-12 col-sm-4 prod-item-col">
 								<div class="product-item">
 									<ul class="product-icon-top">
@@ -153,7 +189,7 @@
 									</div>
 								</div>
 							</div> --}}
-							<div class="col-12 col-sm-4 prod-item-col">
+							{{-- <div class="col-12 col-sm-4 prod-item-col">
 								<div class="product-item">
 									<span class="sale">11%</span>
 									<ul class="product-icon-top">
@@ -345,7 +381,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 						<div class="pagination-cover">
 							<ul class="pagination">

@@ -53,10 +53,10 @@
                 <!--=== SLIDER-SINGLE-NAV END ===-->
             </div>
             <div class="col-12 col-md-7 single-shop-left">
-                <h2 class="title">26 inch mountain bike</h2>
+                <h2 class="title">{{$product->size}} inch {{$product->category}}</h2>
                 <div class="single-price">
-                    <div class="new-price">$1.699</div>
-                    <div class="old-price">$1.799</div>
+                    <div class="new-price">{{$product->price}} DH/DAY</div>
+                    <div class="old-price">{{$product->price}} DH</div>
                 </div>
                 <div class="single-color">
                     <label>color:</label>
@@ -64,7 +64,7 @@
                     <span class="color" style="background-color: #e0e44a;"></span>
                 </div>
                 <div class="frame-size">
-                    <label>frame size:</label>
+                    <label>wheel size:</label>
                     <ul>
                         <li class="active">S</li>
                         <li>M</li>

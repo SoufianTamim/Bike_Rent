@@ -30,8 +30,7 @@ Route::get('/about', function () {  return view('about'); })->name('about');
 Route::get('/contact', function () { return view('contact'); })->name('contact');
 Route::get('/news', function () { return view('news'); })->name('news');
 Route::get('/gallery', function () { return view('gallery'); })->name('gallery');
-Route::get('/bikes', function () { return view('bikes'); })->name('bikes');
-Route::get('/sbike', function () { return view('single_bike'); })->name('sbike');
+// Route::get('/sbike', function () { return view('single_bike'); })->name('sbike');
 Route::get('/profile', function () { return view('profile'); })->middleware(['auth', 'verified'])->name('profile');
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -50,18 +49,15 @@ Route::get('/dashboard', function () {
 
 
 Route::controller (ProductController::class)->group (function() {
-
         Route::get('/product', 'index')->middleware(['auth', 'checkadmin', 'verified'])->name('product');
         Route::get('/product/new',  'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
         Route::get('/product/edit/{product_id}',  'edit')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/view/{product_id}',  'show')->middleware(['auth', 'checkadmin', 'verified']);
-
-        Route::get('/product/single/{product_id}', 'single')->middleware(['auth']);
-
         Route::get('/product/delete/{product_id}',  'destroy')->middleware(['auth', 'checkadmin', 'verified']);
-
-        Route::post('/product/create',  'store')->middleware(['auth', 'checkadmin', 'verified']);
-        Route::post('/product/update/{product_id}',  'update')->middleware(['auth', 'checkadmin', 'verified']);
+        Route::get('/product/single/{product_id}', 'single')->name('sbike');
+        Route::get('/bikes', 'display')->name('bikes');
+        Route::post('/product/create',  'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
+        Route::post('/product/update/{product_id}',  'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
 });
 
 

@@ -1179,6 +1179,7 @@ textarea::placeholder {
 }
 input[type="text"],
 input[type="password"],
+input[type="number"],
 input[type="tel"],
 input[type="email"],
 input[type="search"],
@@ -1201,6 +1202,7 @@ textarea {
 input[type="search"],
 input[type="text"],
 input[type="password"],
+input[type="number"],
 input[type="tel"],
 input[type="email"],
 input[type="search"],
@@ -1476,6 +1478,7 @@ button.btn {
     .subscribe-form .inp-form,
     input[type="text"],
     input[type="password"],
+        input[type="number"],
     input[type="tel"],
     input[type="email"],
     input[type="search"],

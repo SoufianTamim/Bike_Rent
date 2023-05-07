@@ -7,19 +7,19 @@
         <div class="our-advantages-wrap">
             <div class="our-advantages-item">
                 <img class="rx-lazy" src="../img/placeholder-all.png" data-src="../img/advantages-1.svg" alt="icon">
-                <h5><br></h5>
+                <h5>Electric <br> Bikes</h5>
             </div>
             <div class="our-advantages-item">
                 <img class="rx-lazy" src="../img/placeholder-all.png" data-src="../img/advantages-2.svg" alt="icon">
-                <h5>Warranty service <br>for 3 months</h5>
+                <h5> Repairing service<br> for free </h5>
             </div>
             <div class="our-advantages-item">
                 <img class="rx-lazy" src="../img/placeholder-all.png" data-src="../img/advantages-3.svg" alt="icon">
-                <h5>Exchange and return <br>within 14 days</h5>
+                <h5>Low Coast plus<br>than 4 days</h5>
             </div>
             <div class="our-advantages-item">
                 <img class="rx-lazy" src="../img/placeholder-all.png" data-src="../img/advantages-4.svg" alt="icon">
-                <h5>Discounts for <br>customers</h5>
+                <h5>Discounts for<br>customers </h5>
             </div>
         </div>
     </div>
