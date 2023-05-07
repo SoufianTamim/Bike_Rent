@@ -11,7 +11,7 @@
 					<div class="tab tab1">
 						<div class="row">
 							<div class="col-lg-6">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								<p>{{$product->description}}</p>
 								<ul class="description-toggle">
 									<li>
 										<span class="title">main configuration <i class="fa fa-angle-down" aria-hidden="true"></i></span>

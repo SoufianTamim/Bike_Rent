@@ -146,7 +146,8 @@
 												<div class="old-price">{{$product->price }} DH</div>
 											</div>
 											<h6 class="prod-title"><a href="/product/single/{{$product->product_id}}">{{$product->name }}<br>{{$product->category }}</a></h6>
-											<a href="/product/single/{{$product->product_id}}" class="btn"><span>DETAILS </span></a>
+											{{-- <a href="/product/single/{{$product->product_id}}" class="btn"><span>DETAILS </span></a> --}}
+                    						<a href="#" class="btn btn-wishlist"><span>to cart</span></a>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">

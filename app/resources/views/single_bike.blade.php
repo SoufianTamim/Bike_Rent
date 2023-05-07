@@ -6,6 +6,6 @@
 
 @include('layout.header')
 @include('layout.single_bike')
-@include('layout.single_tab')
+{{-- @include('layout.single_tab') --}}
 @include('layout.related')
 @include('layout.footer')
