@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::paginate(4);
+        $products = Product::paginate(6);
         return view('product.product', ['products' => $products]);
         // return view('product.product');
     }
@@ -56,10 +57,28 @@ class ProductController extends Controller
             'created_at' => '',
         ]);
 
-        $image1 = $request->file('image1')->store('public/productsImages');
-        $image2 = $request->file('image2')->store('public/productsImages');
-        $image3 = $request->file('image3')->store('public/productsImages');
-        $image4 = $request->file('image4')->store('public/productsImages');
+
+        $image1 = $request->file('image1');
+        $image2 = $request->file('image2');
+        $image3 = $request->file('image3');
+        $image4 = $request->file('image4');
+
+        $filename1 = hash('sha256', time() . $image1->getClientOriginalName()) . '.' . $image1->getClientOriginalExtension();
+        $path1 = $image1->storeAs('/products_images', $filename1, "public");
+        $image1_url = Storage::url($path1);
+
+        $filename2 = hash('sha256', time() . $image2->getClientOriginalName()) . '.' . $image2->getClientOriginalExtension();
+        $path2 = $image2->storeAs('/products_images', $filename2, "public");
+        $image2_url = Storage::url($path2);
+
+        $filename3 = hash('sha256', time() . $image3->getClientOriginalName()) . '.' . $image3->getClientOriginalExtension();
+        $path3 = $image3->storeAs('/products_images', $filename3, "public");
+        $image3_url = Storage::url($path3);
+
+        $filename4 = hash('sha256', time() . $image4->getClientOriginalName()) . '.' . $image4->getClientOriginalExtension();
+        $path4 = $image4->storeAs('/products_images', $filename4, "public");
+        $image4_url = Storage::url($path4);
+
 
 
         $product = Product::create([
@@ -74,10 +93,10 @@ class ProductController extends Controller
             'price' => $request->price,
             'maintenance_history' => $request->maintenance_history,
             'location' => $request->location,
-            'image1' => $image1,
-            'image2' => $image2,
-            'image3' => $image3,
-            'image4' => $image4,
+            'image1' => $image1_url,
+            'image2' => $image2_url,
+            'image3' => $image3_url,
+            'image4' => $image4_url,
             'description' => $request->description,
             'created_at' => $request->created_at,
         ]);
@@ -102,18 +121,14 @@ class ProductController extends Controller
     {
         //
         $product = Product::where('product_id', $id)->first();
-
         return view('single_bike', ['product'=> $product]);
     }
 
     public function display()
     {
         //
-
         $products = Product::all();
         return view('bikes', ['products' => $products]);
-
-
     }
 
 

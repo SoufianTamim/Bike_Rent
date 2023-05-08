@@ -6,23 +6,23 @@
                 <!--===== SLIDER-SINGLE-FOR =====-->
                 <div class="slider-single-for">
                     <div class="slide-single-for">
-                        <a href="../img/single-slider-1.jpg" class="single-for-img" data-fancybox="prod1">
-                            <img src="../img/single-slider-1.jpg" alt="img">
+                        <a href="{{$product->image1}}" class="single-for-img" data-fancybox="prod1">
+                            <img src="{{$product->image1}}" alt="img">
                         </a>
                     </div>
                     <div class="slide-single-for">
-                        <a href="../img/single-slider-2.jpg" class="single-for-img" data-fancybox="prod1">
-                            <img src="../img/single-slider-2.jpg" alt="img">
+                        <a href="{{$product->image2}}" class="single-for-img" data-fancybox="prod1">
+                            <img src="{{$product->image2}}" alt="img">
                         </a>
                     </div>
                     <div class="slide-single-for">
-                        <a href="../img/single-slider-3.jpg" class="single-for-img" data-fancybox="prod1">
-                            <img src="../img/single-slider-3.jpg" alt="img">
+                        <a href="{{$product->image3}}" class="single-for-img" data-fancybox="prod1">
+                            <img src="{{$product->image3}}" alt="img">
                         </a>
                     </div>
                     <div class="slide-single-for">
-                        <a href="../img/single-slider-4.jpg" class="single-for-img" data-fancybox="prod1">
-                            <img src="../img/single-slider-4.jpg" alt="img">
+                        <a href="{{$product->image4}}" class="single-for-img" data-fancybox="prod1">
+                            <img src="{{$product->image4}}" alt="img">
                         </a>
                     </div>
                 </div>
@@ -31,22 +31,22 @@
                 <div class="slider-single-nav">
                     <div class="slide-single-nav">
                         <div class="single-nav-img">
-                            <img src="../img/single-slider-1.jpg" alt="img">
+                            <img src="{{$product->image1}}" alt="img">
                         </div>
                     </div>
                     <div class="slide-single-nav">
                         <div class="single-nav-img">
-                            <img src="../img/single-slider-2.jpg" alt="img">
+                            <img src="{{$product->image2}}" alt="img">
                         </div>
                     </div>
                     <div class="slide-single-nav">
                         <div class="single-nav-img">
-                            <img src="../img/single-slider-3.jpg" alt="img">
+                            <img src="{{$product->image3}}" alt="img">
                         </div>
                     </div>
                     <div class="slide-single-nav">
                         <div class="single-nav-img">
-                            <img src="../img/single-slider-4.jpg" alt="img">
+                            <img src="{{$product->image4}}" alt="img">
                         </div>
                     </div>
                 </div>

@@ -138,7 +138,7 @@
 										<li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
 										<li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
 									</ul>
-									<a href="/product/single/{{$product->product_id}}" class="product-img"><img src="../img/prod-1.png" alt="product"></a>
+									<a href="/product/single/{{$product->product_id}}" class="product-img"><img src="{{$product->image1 }}" alt="product"></a>
 									<div class="product-item-wrap">
 										<div class="product-item-cover">
 											<div class="price-cover">

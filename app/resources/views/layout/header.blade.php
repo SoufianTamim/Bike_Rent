@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="../img/favicon.png">
+    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- =================== STYLE =================== -->
@@ -83,7 +83,7 @@ $routeName = Route::currentRouteName();
         </div>
         <div class="header-menu">
             <div class="container">
-                <a href="{{ route('index') }}" class="logo"><img src="../img/favicon.png" alt="logo"></a>
+                <a href="{{ route('index') }}" class="logo"><img src="{{asset('img/favicon.png')}}" alt="logo"></a>
                 <nav class="nav-menu">
                     <ul class="nav-list">
                         <li class="{{ Request::route()->getName() == 'index' ? 'active' : '' }}"><a href="{{ route('index') }}">Home</a></li>

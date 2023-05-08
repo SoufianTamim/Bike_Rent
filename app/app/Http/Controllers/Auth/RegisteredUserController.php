@@ -49,16 +49,14 @@ class RegisteredUserController extends Controller
         $profile_picture = null;
 
         if ($request->hasFile('profile_picture')) {
-            $validated = $request->validate([
-                'profile_picture' => 'image','max:2048', 'mimes:jpeg,jpg,png,gif'
-            ]);
-
             $profile_picture = $request->file('profile_picture');
-            $filename = $profile_picture->getClientOriginalName();
-            $path = $profile_picture->storeAs('public/profile_pictures', $filename);
+            $extension = $profile_picture->getClientOriginalExtension();
+            $filename = hash('sha256', time() . $profile_picture->getClientOriginalName()) . '.' . $extension;
+            $path = $profile_picture->storeAs('/profile_pictures', $filename, "public");
             $profile_picture_url = Storage::url($path);
         }
 
+        
         $user = User::create([
             'fullname' => $request->fullname,
             'cin'  => $request->cin,

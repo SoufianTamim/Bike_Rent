@@ -15,8 +15,7 @@
 						{{-- ================================== profile picture ==================================== --}}
 						<div class="img-circle text-center mb-3">
 							@if (auth()->check() && auth()->user()->profile_picture)
-							{{-- <img src={{"file:///Applications/XAMPP/xamppfiles/htdocs/cc/Bike_Rent/app/storage/app/public/profile_pictures/about-2.jpg" }} alt="Profile Picture"> --}}
-							{{-- <img src="{{ asset(auth()->user()->profile_picture_url) }}" alt="{{ auth()->user()->fullname }} profile picture" class="shadow"> --}}
+							<img src="{{asset(''.Auth::user()->profile_picture)}}"  alt="Profile Picture">
 							@else
 								<img src="{{asset('img/user.png')}}" alt="{{ auth()->user()->fullname }} profile picture" class="shadow">
 							@endif
