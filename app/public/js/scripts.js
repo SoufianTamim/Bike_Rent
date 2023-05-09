@@ -43,6 +43,13 @@
 			});
 		}
 
+		const modal = document.querySelector(".modal");
+
+        modal.addEventListener("click", (event) => {
+            // Handle modal click event here
+        });
+
+		
 		/* ----------------- SLIDER HOME TWO ---------------- */
 		if($('.dark-slider')[0]){
 			$('.dark-slider').slick({

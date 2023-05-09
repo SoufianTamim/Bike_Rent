@@ -6,9 +6,47 @@
 				<div class="col-12 col-lg-3 shop-sidebar">
 					<ul class="widgets wigets-shop">
 						<li class="widget wiget-cart">
-							<h5 class="title">Cart</h5>
+							@php
+								$totalPrice = 0;
+							@endphp
+							<div class="title flex">
+								<h5>Cart</h5>
+								<form action="" method="post">
+									<button type="submit" class="btn-delete">
+										<span id="font-color">clear cart</span>
+									</button>
+								</form>
+							</div>
+							@if ($cartItems->count() < 1 )
 							<p class="not-product">No products in the cart.</p>
+							@else
+							@foreach ($cartItems as $cartItem)
+							
+							<div class="flex">
+								<form action={{ route('cart.delete', $cartItem->cart_id) }}  method="post">
+									@csrf
+									<div class="flex">
+									<button class="btn-delete" type="submit">
+										<span class="iconify" data-icon="ic:baseline-minus" style="color: red; font-size: 2rem; margin: 0 1rem 0 0;"></span>
+									</button>
+										<p> {{ $cartItem['name']}}</p>
+									</div>
+								</form>
+								<p> {{ $cartItem['price']}}</p>
+							</div>
+							@php
+								$totalPrice += $cartItem['price'];
+							@endphp
+								@endforeach
+								<div class=" flex topo">
+									<h5>Total </h5>
+									<h5 class="">{{ $totalPrice }} DH</h5>
+								</div>
+
+							@endif
 						</li>
+
+
 						<li class="widget wiget-shop-category">
 							<h5 class="title">categories</h5>
 							<ul>
@@ -147,7 +185,11 @@
 											</div>
 											<h6 class="prod-title"><a href="/product/single/{{$product->product_id}}">{{$product->name }}<br>{{$product->category }}</a></h6>
 											{{-- <a href="/product/single/{{$product->product_id}}" class="btn"><span>DETAILS </span></a> --}}
-                    						<a href="#" class="btn btn-wishlist"><span>to cart</span></a>
+											<form action="{{route('cart.store')}}" method="post">
+												@csrf
+												<input type="hidden" name="product_id" value="{{ $product->product_id}}">
+												<button type="submit" class="btn btn-wishlist"><span>to cart</span></button>
+											</form>
 										</div>
 										<div class="prod-info">
 											<ul class="prod-list">

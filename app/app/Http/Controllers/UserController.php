@@ -17,6 +17,11 @@ class UserController extends Controller
         return view('user.user',['users' => $users]);
     }
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -29,6 +34,7 @@ class UserController extends Controller
 
         // Update the user's status to indicate that they are banned
         $user->status = 'banned';
+        
         $user->save();
 
         // Redirect the user to a page indicating that they have been banned

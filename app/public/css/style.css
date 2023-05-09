@@ -7993,3 +7993,54 @@ body {
 .green{
     color:green;
 }
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+.topo{
+    margin-top: 1.3rem;
+}
+
+.btn-delete{
+    background-color: transparent;
+    border-color: unset;
+    color: transparent;
+    padding: unset;
+    border: none;
+}
+
+.btn-delete:hover{
+    opacity: .5;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-100%);
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    width: 23rem;
+    height: fit-content;
+}
+
+.icon-container:hover .modal {
+  display: block;
+}
+
+#font-color{
+    color: red;
+    text-transform: uppercase;
+}

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -51,14 +52,40 @@ Route::get('/dashboard', function () {
 Route::controller (ProductController::class)->group (function() {
         Route::get('/product', 'index')->middleware(['auth', 'checkadmin', 'verified'])->name('product');
         Route::get('/product/new',  'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
-        Route::get('/product/edit/{product_id}',  'edit')->middleware(['auth', 'checkadmin', 'verified']);
-        Route::get('/product/view/{product_id}',  'show')->middleware(['auth', 'checkadmin', 'verified']);
-        Route::get('/product/delete/{product_id}',  'destroy')->middleware(['auth', 'checkadmin', 'verified']);
+        Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
+        Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
+        Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/single/{product_id}', 'single')->name('sbike');
-        Route::get('/bikes', 'display')->name('bikes');
-        Route::post('/product/create',  'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
-        Route::post('/product/update/{product_id}',  'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
+        // Route::get('/bikes', 'index')->name('bikes');
+
+        Route::post('/product/create', 'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
+        Route::post('/product/update/{product_id}', 'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
 });
+
+
+
+Route::controller(CartController::class)->group(function () {
+    Route::get('/cart', 'index')->middleware(['auth', 'verified'])->name('cart');
+    Route::post('/cart/store', 'store')->middleware(['auth', 'verified'])->name('cart.store');
+    Route::post('/cart/delete/{cart_id}', 'deleteCartItem')->middleware(['auth', 'verified'])->name('cart.delete');
+    Route::post('/cart/clear', 'clear')->middleware(['auth', 'verified'])->name('cart.clear');
+
+
+    
+    Route::get('/bikes', 'index')->name('bikes');
+
+
+
+    // Route::get('/product/new', 'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
+    // Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
+    // Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
+    // Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
+    // Route::get('/product/single/{product_id}', 'single')->name('sbike');
+    // Route::get('/bikes', 'display')->name('bikes');
+    // Route::post('/product/create', 'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
+    // Route::post('/product/update/{product_id}', 'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
+});
+
 
 
 Route::controller(UserController::class)->group(function () {

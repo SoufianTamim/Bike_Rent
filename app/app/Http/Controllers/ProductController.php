@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,10 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        
         $products = Product::paginate(6);
         return view('product.product', ['products' => $products]);
-        // return view('product.product');
+        
+ 
     }
 
     /**
@@ -143,6 +145,11 @@ class ProductController extends Controller
         // $product = Product::find($id);
         $product = Product::where('product_id', $id)->first();
         return view('product.form', ['flag'=>$flag , 'route'=>$route , 'product'=>$product ]);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
     }
 
     /**

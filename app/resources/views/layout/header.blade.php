@@ -76,7 +76,14 @@ $routeName = Route::currentRouteName();
                     <ul class="icon-right-list">
                         <li><a class="header-like" href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>2</span></a></li>
                         <li><a class="header-user" href="{{ url('/profile') }}" ><i class="fa fa-user{{ Request::route()->getName() == 'profile' ? '' : ' active' }}" aria-hidden="true"></i></a></li>
-                        <li><a class="header-cart" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                        {{-- <i class="fa fa-info-circle"></i> --}}
+                        <div class="icon-container">
+                            <li><a class="header-cart" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            <div class="modal">
+                                <p>This is the modal content.</p>
+                            </div>
+                        </div>
+
                     </ul>
                 </div>
             </div>
