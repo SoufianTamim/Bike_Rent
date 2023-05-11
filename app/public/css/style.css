@@ -8044,3 +8044,9 @@ body {
     color: red;
     text-transform: uppercase;
 }
+
+.btn-buy{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

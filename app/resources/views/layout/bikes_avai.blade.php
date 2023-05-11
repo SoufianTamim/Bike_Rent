@@ -10,8 +10,9 @@
 								$totalPrice = 0;
 							@endphp
 							<div class="title flex">
-								<h5>Cart</h5>
-								<form action="" method="post">
+								<h5>Cart</h5> 
+								<form action='/cart/clear/ {{Auth::user()->user_id}}' method="post">
+									@csrf
 									<button type="submit" class="btn-delete">
 										<span id="font-color">clear cart</span>
 									</button>
@@ -42,8 +43,10 @@
 									<h5>Total </h5>
 									<h5 class="">{{ $totalPrice }} DH</h5>
 								</div>
-
 							@endif
+							<div class="btn-buy">
+								<a href="" class="btn  "><span>buy</span></a>
+							</div>
 						</li>
 
 

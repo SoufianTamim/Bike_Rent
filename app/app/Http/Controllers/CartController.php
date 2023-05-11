@@ -17,7 +17,7 @@ class CartController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $products = Product::paginate(6);
+        $products = Product::paginate(9);
         $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
                         ->where('carts.user_id', $user->user_id)
                         ->get(['carts.cart_id', 'products.name', 'products.price']);
@@ -102,6 +102,14 @@ class CartController extends Controller
         $cart = Cart::where('cart_id', $id);
         $cart->delete();
         return redirect()->back()->with('message', 'Item removed from cart.');
+    }
+
+    public function clear($id)
+    {
+        // $cart->user_id = $user->id;x
+        $cart = Cart::where('user_id', $id);
+        $cart->delete();
+        return redirect()->back()->with('message', 'cart cleared');
     }
 
 

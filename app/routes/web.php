@@ -68,13 +68,11 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->middleware(['auth', 'verified'])->name('cart');
     Route::post('/cart/store', 'store')->middleware(['auth', 'verified'])->name('cart.store');
     Route::post('/cart/delete/{cart_id}', 'deleteCartItem')->middleware(['auth', 'verified'])->name('cart.delete');
-    Route::post('/cart/clear', 'clear')->middleware(['auth', 'verified'])->name('cart.clear');
+    Route::post('/cart/clear/{cart_id}', 'clear')->middleware(['auth', 'verified'])->name('cart.clear');
 
 
     
-    Route::get('/bikes', 'index')->name('bikes');
-
-
+    Route::get('/bikes', 'index')->middleware(['auth', 'verified'])->name('bikes');
 
     // Route::get('/product/new', 'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
     // Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
