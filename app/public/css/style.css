@@ -1218,8 +1218,10 @@ input[type="search"]:hover,
 input[type="search"]:focus,
 input[type="text"]:hover,
 input[type="password"]:hover,
+input[type="number"]:hover,
 input[type="text"]:focus,
 input[type="password"]:focus,
+input[type="number"]:focus,
 input[type="tel"]:hover,
 input[type="tel"]:focus,
 input[type="email"]:hover,
@@ -8049,4 +8051,24 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+}
+
+
+.container-card-payment{
+    width: 65%;
+    display: flex;
+    margin: 2rem auto;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.btn-middle{
+    display: flex;
+    justify-self: center;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
 }

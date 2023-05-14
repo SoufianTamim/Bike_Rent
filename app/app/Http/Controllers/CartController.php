@@ -17,7 +17,7 @@ class CartController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $products = Product::paginate(9);
+        $products = Product::all(16);
         $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
                         ->where('carts.user_id', $user->user_id)
                         ->get(['carts.cart_id', 'products.name', 'products.price']);
@@ -25,22 +25,24 @@ class CartController extends Controller
     }
 
 
+public function store(Request $request)
+{
+    $user = $request->user();
+    $product = Product::findOrFail($request->input('product_id'));
+    $carted = $user->carts->where('product_id', $product->product_id)->first();
 
-    public function store(Request $request)
-    {
-        $product = Product::findOrFail($request->input('product_id'));
-        $user = Auth::user();
-        $cart = new Cart([
-            'user_id' => $user->user_id,
-            'product_id' => $product->product_id,
-        ]);
-        $cart->save();
-        $cartItems = Cart::with('product')->where('user_id', $user->user_id)->get();
-
-        $message = "added succefully";
-
-        return redirect()->route('bikes')->with('message', 'Successfully added');
+    if ($carted) {
+        return redirect()->route('bikes');
     }
+
+    $carte = $user->carts()->create([
+        'product_id' => $product->product_id,
+    ]);
+
+    if ($carte) {
+        return redirect()->route('bikes');
+    }
+}
 
     /**
      * Show the form for creating a new resource.

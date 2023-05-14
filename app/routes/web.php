@@ -3,6 +3,7 @@
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -29,6 +30,7 @@ Route::get('/', function () { return view('index'); })->name('index');
 Route::get('/404', function () { return view('404'); })->name('404');
 Route::get('/about', function () {  return view('about'); })->name('about');
 Route::get('/contact', function () { return view('contact'); })->name('contact');
+Route::get('/payement', function () { return view('payement'); })->name('payement');
 Route::get('/news', function () { return view('news'); })->name('news');
 Route::get('/gallery', function () { return view('gallery'); })->name('gallery');
 // Route::get('/sbike', function () { return view('single_bike'); })->name('sbike');
@@ -55,7 +57,7 @@ Route::controller (ProductController::class)->group (function() {
         Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
-        Route::get('/product/single/{product_id}', 'single')->name('sbike');
+        Route::get('/product/single/{product_id}', 'single')->name('bike details');
         // Route::get('/bikes', 'index')->name('bikes');
 
         Route::post('/product/create', 'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
@@ -69,10 +71,25 @@ Route::controller(CartController::class)->group(function () {
     Route::post('/cart/store', 'store')->middleware(['auth', 'verified'])->name('cart.store');
     Route::post('/cart/delete/{cart_id}', 'deleteCartItem')->middleware(['auth', 'verified'])->name('cart.delete');
     Route::post('/cart/clear/{cart_id}', 'clear')->middleware(['auth', 'verified'])->name('cart.clear');
+    Route::get('/bikes', 'index')->name('bikes');
+
+    // Route::get('/product/new', 'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
+    // Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
+    // Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
+    // Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
+    // Route::get('/product/single/{product_id}', 'single')->name('sbike');
+    // Route::get('/bikes', 'display')->name('bikes');
+    // Route::post('/product/create', 'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
+    // Route::post('/product/update/{product_id}', 'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
+});
 
 
-    
-    Route::get('/bikes', 'index')->middleware(['auth', 'verified'])->name('bikes');
+Route::controller(LikeController::class)->group(function () {
+    Route::get('/like', 'index')->middleware(['auth', 'verified'])->name('like');
+    Route::post('/like/store', 'store')->middleware(['auth', 'verified'])->name('like.store');
+    Route::post('/like/delete/{like_id}', 'deleteLikeItem')->middleware(['auth', 'verified'])->name('like.delete');
+    Route::post('/like/clear/{like_id}', 'clear')->middleware(['auth', 'verified'])->name('like.clear');
+    Route::get('/bikes', 'index')->name('bikes');
 
     // Route::get('/product/new', 'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
     // Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);

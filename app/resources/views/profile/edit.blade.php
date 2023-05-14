@@ -6,7 +6,7 @@
 
 
 @include('layout.header')
-@include('layout.dash_title')
+@include('layout.Title')
 	<section class="py-5 my-5">
 		<div class="container">
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex">

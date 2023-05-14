@@ -17,6 +17,7 @@ return new class () extends Migration {
             $table->string('condition');
             $table->string('manufacturer');
             $table->string('model');
+            $table->string('availability')->default("available");
             $table->integer('size');
             $table->integer('weight');
             $table->text('maintenance_history');

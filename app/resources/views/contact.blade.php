@@ -5,7 +5,7 @@
 {{-- ========================================================================================= --}}
 
 @include('layout.header')
-@include('layout.contact_title')
+@include('layout.Title')
 @include('layout.contact_top')
 @include('layout.contact_block')
 @include('layout.contact_form')
