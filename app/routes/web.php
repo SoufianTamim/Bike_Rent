@@ -30,10 +30,11 @@ Route::get('/', function () { return view('index'); })->name('index');
 Route::get('/404', function () { return view('404'); })->name('404');
 Route::get('/about', function () {  return view('about'); })->name('about');
 Route::get('/contact', function () { return view('contact'); })->name('contact');
-Route::get('/payement', function () { return view('payement'); })->name('payement');
-Route::get('/news', function () { return view('news'); })->name('news');
+Route::get('/checkout', function () { return view('checkout'); })->name('checkout');
 Route::get('/gallery', function () { return view('gallery'); })->name('gallery');
-// Route::get('/sbike', function () { return view('single_bike'); })->name('sbike');
+Route::get('/terms', function () { return view('terms'); })->name('terms');
+
+
 Route::get('/profile', function () { return view('profile'); })->middleware(['auth', 'verified'])->name('profile');
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -116,6 +117,9 @@ Route::controller(UserController::class)->group(function () {
 
 
 
+
+// Route::get('/news', function () { return view('news'); })->name('news');
+// Route::get('/sbike', function () { return view('single_bike'); })->name('sbike');
 
 
 

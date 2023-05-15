@@ -52,7 +52,7 @@
                              <h5 class="">{{ $totalPrice }} DH</h5>
                          </div>
                          <div class="btn-buy">
-                             <a href="" class="btn  "><span>buy</span></a>
+                             <a href="/chekout" class="btn  "><span>proceed to checkout</span></a>
                          </div>
                      @endif
                      </li>

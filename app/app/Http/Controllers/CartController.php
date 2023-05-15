@@ -20,7 +20,7 @@ class CartController extends Controller
         $products = Product::all(16);
         $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
                         ->where('carts.user_id', $user->user_id)
-                        ->get(['carts.cart_id', 'products.name', 'products.price']);
+                        ->get(['carts.cart_id', 'products.name', 'products.price', 'products.category']);
         return view('bikes', ['products' => $products, 'cartItems'=>$cartItems]);
     }
 

@@ -8055,7 +8055,7 @@ body {
 
 
 .container-card-payment{
-    width: 65%;
+    width: 23%;
     display: flex;
     margin: 2rem auto;
     justify-content: center;
@@ -8068,7 +8068,24 @@ body {
     justify-self: center;
 }
 
+.two-checkout{
+    display: flex;
+    flex-direction: row;
+}
+
 .flex-row{
     display: flex;
     flex-direction: row;
+}
+
+.cards-checkout{
+    margin-top: 7rem;
+    padding: 23px;
+}
+
+.form-checkout{
+
+    flex: 60%;
+    padding: 23px;
+    margin-top: 6rem;
 }
