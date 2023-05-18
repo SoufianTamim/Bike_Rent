@@ -44,13 +44,6 @@ public function store(Request $request)
     }
 }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     public function add(Request $request)
     {
@@ -65,39 +58,6 @@ public function store(Request $request)
         return redirect()->route('cart.index')->with('success', 'Product added to cart.');
     }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Cart $cart)
-    {
-        //
-    }
-
     public function deleteCartItem($id)
     {
 
@@ -108,7 +68,6 @@ public function store(Request $request)
 
     public function clear($id)
     {
-        // $cart->user_id = $user->id;x
         $cart = Cart::where('user_id', $id);
         $cart->delete();
         return redirect()->back()->with('message', 'cart cleared');

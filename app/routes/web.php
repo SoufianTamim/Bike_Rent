@@ -30,13 +30,25 @@ Route::get('/', function () { return view('index'); })->name('index');
 Route::get('/404', function () { return view('404'); })->name('404');
 Route::get('/about', function () {  return view('about'); })->name('about');
 Route::get('/contact', function () { return view('contact'); })->name('contact');
-Route::get('/checkout', function () { return view('checkout'); })->name('checkout');
 Route::get('/gallery', function () { return view('gallery'); })->name('gallery');
 Route::get('/terms', function () { return view('terms'); })->name('terms');
 
 
+
 Route::get('/profile', function () { return view('profile'); })->middleware(['auth', 'verified'])->name('profile');
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+
+Route::controller(ChechoutController::class)->group(function () {
+
+    Route::get('/checkout', 'checkout')->middleware(['auth',  'verified'])->name('checkout');
+    Route::get('/success', 'success')->middleware(['auth',  'verified'])->name('success');
+    Route::get('/cancel', 'cancel')->middleware(['auth',  'verified'])->name('cancel');
+    Route::get('/webhook', 'webhook')->middleware(['auth',  'verified'])->name('webhook');
+
+});
 
 
 Route::middleware('auth')->group(function () {
@@ -59,8 +71,6 @@ Route::controller (ProductController::class)->group (function() {
         Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/single/{product_id}', 'single')->name('bike details');
-        // Route::get('/bikes', 'index')->name('bikes');
-
         Route::post('/product/create', 'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
         Route::post('/product/update/{product_id}', 'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
 });
@@ -73,15 +83,6 @@ Route::controller(CartController::class)->group(function () {
     Route::post('/cart/delete/{cart_id}', 'deleteCartItem')->middleware(['auth', 'verified'])->name('cart.delete');
     Route::post('/cart/clear/{cart_id}', 'clear')->middleware(['auth', 'verified'])->name('cart.clear');
     Route::get('/bikes', 'index')->name('bikes');
-
-    // Route::get('/product/new', 'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
-    // Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
-    // Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
-    // Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
-    // Route::get('/product/single/{product_id}', 'single')->name('sbike');
-    // Route::get('/bikes', 'display')->name('bikes');
-    // Route::post('/product/create', 'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
-    // Route::post('/product/update/{product_id}', 'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
 });
 
 
@@ -92,14 +93,6 @@ Route::controller(LikeController::class)->group(function () {
     Route::post('/like/clear/{like_id}', 'clear')->middleware(['auth', 'verified'])->name('like.clear');
     Route::get('/bikes', 'index')->name('bikes');
 
-    // Route::get('/product/new', 'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
-    // Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
-    // Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
-    // Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
-    // Route::get('/product/single/{product_id}', 'single')->name('sbike');
-    // Route::get('/bikes', 'display')->name('bikes');
-    // Route::post('/product/create', 'store')->middleware(['auth', 'checkadmin', 'verified'])->name('create');
-    // Route::post('/product/update/{product_id}', 'update')->middleware(['auth', 'checkadmin', 'verified'])->name('update');
 });
 
 
@@ -114,6 +107,8 @@ Route::controller(UserController::class)->group(function () {
     // Route::post('/user/update/{id}', 'update')->middleware(['auth', 'checkadmin', 'verified']);
     // Route::post('/user/create', 'store')->middleware(['auth', 'checkadmin', 'verified']);
 });
+
+
 
 
 

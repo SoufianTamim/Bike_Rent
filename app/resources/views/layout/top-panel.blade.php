@@ -57,7 +57,7 @@
 
 
                         {{-- ==================================================================================================== --}}
-                        <li><a class="header-user" href="{{ url('/profile') }}"><i class="fa fa-user{{ Request::route()->getName() == 'profile' ? '' : ' active' }}" aria-hidden="true"></i></a></li>
+                        <li><a class="header-user" href="{{ url('/profile') }}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         {{-- ==================================================================================================== --}}
                         <div class="icon-container">
                             <li><a class="header-cart" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>

@@ -1,11 +1,9 @@
 @include('layout.header')
 @include('layout.Title')
 
-
-
 <div class="two-checkout">
     <div class="form-checkout">
-        <form action="" method="POST">
+        <form action="/checkout" method="POST">
             <label for="selected_bike">SELECTED PERIOD:</label><br>
             <div class="flex-row">
                 <input type="number" id="period" name="booking_period">
@@ -17,34 +15,15 @@
             </div>
             <label for="pickup_location" style="margin-top: 60px;">PICKUP LOCATION:</label><br>
             <input type="text" id="pickup_location" name="pickup_location"><br><br>
-
             <label for="drop_location">DROP LOCATION:</label><br>
             <input type="text" id="drop_location" name="drop_location"><br><br>
-            {{-- <label for="additional_options">ADDITIONAL OPTIONS:</label><br>
-            <input type="checkbox" id="helmet" name="helmet" value="helmet">
-            <label for="helmet">Helmet</label><br>
-            <input type="checkbox" id="locks" name="locks" value="locks">
-            <label for="locks">Locks</label><br>
-            <input type="checkbox" id="other" name="other" value="other">
-            <label for="other">Other</label><br><br> --}}
-
             <input type="checkbox" id="terms_and_conditions" name="terms_and_conditions" required>
             <label for="terms_and_conditions">I accept the <a href="terms">terms and conditions</a></label><br><br>
-{{-- 
-            <label for="safety_guidelines">SAFETY GUIDELINES:</label><br>
-            <ul>
-                <li>read safety guideleness</li>
-                <li>wear helmet </li>
-                <li>wera galsses </li>
-                <li>do not go too fast </li>
-                <li>always stay safe</li>
-            </ul> --}}
             <div class="container-card-payment">
                 <button type="submit" class="btn "><span>Pay</span></button>
             </div>
         </form>
     </div>
-
 
 
     <div class="cards-checkout">

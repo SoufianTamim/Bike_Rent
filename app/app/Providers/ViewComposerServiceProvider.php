@@ -24,14 +24,9 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    View::composer([ 'index','bikes', 'contact','checkout', 'about', 'dashboard', 'gallery', 'single_bike', 'profile.edit'], function ($view) {
+    View::composer([ 'index','bikes', 'contact','payement','checkout', 'about', 'dashboard', 'gallery', 'single_bike', 'profile.edit'], function ($view) {
         if (Auth::check()) {
             $user = Auth::user();
-            // $user_id = Auth::user()->user_id;
-
-            // dd($user_id);
-
-
             $products = Product::paginate(16);
             $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
                             ->where('carts.user_id', $user->user_id)
