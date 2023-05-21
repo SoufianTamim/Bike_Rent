@@ -14,11 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
         $products = Product::paginate(6);
         return view('product.product', ['products' => $products]);
-        
- 
     }
 
     /**
@@ -186,6 +183,16 @@ class ProductController extends Controller
         return redirect('/product');
     }
 
+    public function return(string $id)
+    {
+        //
+        $product = Product::where('product_id', $id)->first();
+        $product->availability = "available";
+        $product->save();
+
+        return redirect('/bikes');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
@@ -195,5 +202,5 @@ class ProductController extends Controller
         $product = Product::where('product_id', $id)->first();
         $product->delete();
         return redirect('/product');
-    }
+    } 
 }

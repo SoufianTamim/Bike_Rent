@@ -167,7 +167,6 @@
                                      <span class="top-sale">{{ $product->availability }}</span>
                                      <ul class="product-icon-top">
                                          <li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-                                         {{-- <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li> --}}
                                          <form action="{{ route('like.store') }}" method="post">
                                              @csrf
                                              <input type="hidden" name="product_id" value="{{ $product->product_id }}">
@@ -183,11 +182,15 @@
                                              </div>
                                              <h6 class="prod-title"><a href="/product/single/{{ $product->product_id }}">{{ $product->name }}<br>{{ $product->category }}</a></h6>
                                              {{-- <a href="/product/single/{{$product->product_id}}" class="btn"><span>DETAILS </span></a> --}}
+                                             @if ($product->availability !== 'booked')
                                              <form action="{{ route('cart.store') }}" method="post">
                                                  @csrf
                                                  <input type="hidden" name="product_id" value="{{ $product->product_id }}">
                                                  <button type="submit" class="btn btn-wishlist"><span>to cart</span></button>
                                              </form>
+                                             @else
+                                             <button class="btn" disabled><span> Bike Resered Cannot be booked</span></button>
+                                            @endif
                                          </div>
                                          <div class="prod-info">
                                              <ul class="prod-list">

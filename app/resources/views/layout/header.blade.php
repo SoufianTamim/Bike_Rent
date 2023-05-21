@@ -67,14 +67,35 @@ $routeName = Route::currentRouteName();
             <span></span>
         </a> --}}
 
-        @include('layout.top-panel')
+        {{-- @include('layout.top-panel') --}}
 
         <div class="header-menu">
             <div class="container">
                 <a href="{{ route('index') }}" class="logo"><img src="{{asset('img/favicon.png')}}" alt="logo"></a>
                 <nav class="nav-menu">
+                @if (isset($pageName) && $pageName === '404')
                     <ul class="nav-list">
-                        <li class="{{ Request::route()->getName() == 'index' ? 'active' : '' }}"><a href="{{ route('index') }}">Home</a></li>
+
+                        <li ><a href="{{ route('index') }}">Home</a></li>
+                        <li ><a href="{{ route('bikes') }}">bikes</a></li>
+                        <li ><a href="{{ route('gallery') }}">Gallery</a></li>
+                        <li ><a href="{{ route('about') }}">About Us</a></li>
+                        <li ><a href="{{ route('contact') }}">Contact</a></li>
+                        @if (Route::has('login'))
+                            @auth
+                                <li class='profile'><a href="{{ url('/profile') }}">Profile</a></li>
+                            @else
+                                <li class='login'><a href="{{ route('login') }}">Log in</a></li>
+                                @if (Route::has('register'))
+                                    <li class='register'><a href="{{ route('register') }}">Register</a></li>
+                                @endif
+                            @endauth
+                        @endif
+                    </ul>
+                @else
+                 <ul class="nav-list">
+
+                        <li class="{{ Request::route()->getName() != null && Request::route()->getName() == 'index' ? 'active' : '' }}"><a href="{{ route('index') }}">Home</a></li>
                         <li class="{{ Request::route()->getName() == 'bikes' ? 'active' : '' }}"><a href="{{ route('bikes') }}">bikes</a></li>
                         <li class="{{ Request::route()->getName() == 'gallery' ? 'active' : '' }}"><a href="{{ route('gallery') }}">Gallery</a></li>
                         <li class="{{ Request::route()->getName() == 'about' ? 'active' : '' }}"><a href="{{ route('about') }}">About Us</a></li>
@@ -90,6 +111,10 @@ $routeName = Route::currentRouteName();
                             @endauth
                         @endif
                     </ul>
+
+                @endif
+
+
                 </nav>
             </div>
         </div>

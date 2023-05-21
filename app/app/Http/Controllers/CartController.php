@@ -17,7 +17,7 @@ class CartController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $products = Product::all(16);
+        $products = Product::paginate(16);
         $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
                         ->where('carts.user_id', $user->user_id)
                         ->get(['carts.cart_id', 'products.name', 'products.price', 'products.category']);
@@ -55,7 +55,7 @@ public function store(Request $request)
         $cart->product_id = $product->id;
         $cart->save();
 
-        return redirect()->route('cart.index')->with('success', 'Product added to cart.');
+        return redirect()->route('cart.index');
     }
 
     public function deleteCartItem($id)
@@ -63,7 +63,7 @@ public function store(Request $request)
 
         $cart = Cart::where('cart_id', $id);
         $cart->delete();
-        return redirect()->back()->with('message', 'Item removed from cart.');
+        return redirect()->back();
     }
 
     public function clear($id)

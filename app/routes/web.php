@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
@@ -35,15 +36,15 @@ Route::get('/terms', function () { return view('terms'); })->name('terms');
 
 
 
-Route::get('/profile', function () { return view('profile'); })->middleware(['auth', 'verified'])->name('profile');
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
 
-Route::controller(ChechoutController::class)->group(function () {
-
-    Route::get('/checkout', 'checkout')->middleware(['auth',  'verified'])->name('checkout');
+Route::controller(BookingController::class)->group(function () {
+    Route::get('/profile', 'index')->middleware(['auth',  'verified'])->name('profile');
+    Route::get('/payement', 'index')->middleware(['auth',  'verified'])->name('payement');
+    Route::post('/checkout', 'checkout')->middleware(['auth',  'verified'])->name('checkout');
     Route::get('/success', 'success')->middleware(['auth',  'verified'])->name('success');
     Route::get('/cancel', 'cancel')->middleware(['auth',  'verified'])->name('cancel');
     Route::get('/webhook', 'webhook')->middleware(['auth',  'verified'])->name('webhook');
@@ -68,6 +69,7 @@ Route::controller (ProductController::class)->group (function() {
         Route::get('/product', 'index')->middleware(['auth', 'checkadmin', 'verified'])->name('product');
         Route::get('/product/new',  'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-product');
         Route::get('/product/edit/{product_id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);
+        Route::get('/product/return/{product_id}', 'return')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/view/{product_id}', 'show')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/delete/{product_id}', 'destroy')->middleware(['auth', 'checkadmin', 'verified']);
         Route::get('/product/single/{product_id}', 'single')->name('bike details');

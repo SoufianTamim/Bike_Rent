@@ -8070,7 +8070,9 @@ body {
 
 .two-checkout{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .flex-row{

@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->unsignedBigInteger('user_id');
                 $table->unsignedBigInteger('product_id');
                 $table->string('book_period');
-                $table->double('book_fees', 8, 2);
+                $table->BigInteger('book_fees');
                 $table->text('payment_info');
                 $table->string('book_status');
                 $table->text('notes')->nullable();
