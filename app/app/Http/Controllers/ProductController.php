@@ -12,9 +12,10 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        $products = Product::paginate(6);
+        $products = Product::paginate(3);
         return view('product.product', ['products' => $products]);
     }
 
@@ -203,4 +204,56 @@ class ProductController extends Controller
         $product->delete();
         return redirect('/product');
     } 
+
+
+    public function filter(Request $request)
+    {
+        // Get the filter parameters from the request
+        $category = $request->input('category');
+        $brand = $request->input('brand');
+        $condition = $request->input('condition');
+        $wheelSize = $request->input('wheelSize');
+        $minPrice = $request->input('minPrice');
+        $maxPrice = $request->input('maxPrice');
+        $speeds = $request->input('speeds');
+        $weight = $request->input('weight');
+
+        // Apply filters to the query
+        $query = Product::query();
+        
+        if ($category) {
+            $query->where('category', $category);
+        }
+        
+        if ($brand) {
+            $query->where('brand', $brand);
+        }
+        
+        if ($condition) {
+            $query->where('condition', $condition);
+        }
+        
+        if ($wheelSize) {
+            $query->where('wheel_size', $wheelSize);
+        }
+        
+        if ($minPrice && $maxPrice) {
+            $query->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+        
+        if ($speeds) {
+            $query->where('speeds', $speeds);
+        }
+        
+        if ($weight) {
+            $query->where('weight', $weight);
+        }
+
+        // Fetch the filtered results
+        $products = $query->get();
+
+        // Pass the filtered results to the view
+        return view('bikes.index', compact('products'));
+    }
+
 }

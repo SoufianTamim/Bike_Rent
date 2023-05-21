@@ -10,19 +10,22 @@
                          $totalPrice = 0;
                      @endphp
                      @if (!auth()->check())
-                         <div class="title flex">
+                         <div class="title">
                              <h5>Cart</h5>
+                             <hr>
                          </div>
                          @php $text = "you are a guest" @endphp
                          <p>{{ $text }} </p>
                      @elseif ($cartItems->count() < 1)
-                         <div class="title flex">
+                         <div class="title ">
                              <h5>Cart</h5>
+                             <hr>
                          </div>
                          <p class="not-product">No products in the cart.</p>
                      @elseif ($cartItems->count() >= 1)
-                         <div class="title flex">
+                         <div class="title ">
                              <h5>Cart</h5>
+                             <hr>
                              <form action='/cart/clear/ {{ Auth::user()->user_id }}' method="post">
                                  @csrf
                                  <button type="submit" class="btn-delete">
@@ -56,31 +59,32 @@
                          </div>
                      @endif
                      </li>
+                     <form action="" method="get" class="mar-5" >
                      <li class="widget wiget-shop-category">
                          <h5 class="title">categories</h5>
                          <ul>
                              <li>
-                                 <p><input type="checkbox" checked><span>Road Bike</span></p>
+                                 <p><input type="checkbox" name="category" ><span>Road Bike</span></p>
                              </li>
                              <li>
-                                 <p><input type="checkbox"><span>Mountain Bike</span></p>
+                                 <p><input type="checkbox" name="category" ><span>Mountain Bike</span></p>
                              </li>
                              <li>
-                                 <p><input type="checkbox"><span>BMX Bike</span></p>
+                                 <p><input type="checkbox" name="category" ><span>BMX Bike</span></p>
                              </li>
                              <li>
-                                 <p><input type="checkbox"><span>City Bike</span></p>
+                                 <p><input type="checkbox" name="category" ><span>City Bike</span></p>
                              </li>
                              <li>
-                                 <p><input type="checkbox"><span>Kids Bike</span></p>
+                                 <p><input type="checkbox" name="category" ><span>Kids Bike</span></p>
                              </li>
                              <li>
-                                 <p><input type="checkbox"><span>Safety Products</span></p>
+                                 <p><input type="checkbox" name="category" ><span>Safety Products</span></p>
                              </li>
                          </ul>
                      </li>
                      <li class="widget wiget-brand">
-                         <h5 class="title">Brand</h5>
+                         <h5 class="title" name="brand" >Brand</h5>
                          <select class="nice-select">
                              <option>Pinarello</option>
                              <option>Eddy Merckx</option>
@@ -91,8 +95,8 @@
                          </select>
                      </li>
                      <li class="widget wiget-brand">
-                         <h5 class="title">condition</h5>
-                         <select class="nice-select">
+                         <h5 class="title" >condition</h5>
+                         <select class="nice-select" name="condition">
                              <option>new</option>
                              <option>like new</option>
                              <option>excelent</option>
@@ -102,7 +106,7 @@
                      </li>
                      <li class="widget wiget-brand">
                          <h5 class="title">Wheel Size</h5>
-                         <select class="nice-select">
+                         <select class="nice-select" name="size">
                              <option>12</option>
                              <option>14</option>
                              <option>16</option>
@@ -120,30 +124,33 @@
                          <h5 class="title">price(DH)</h5>
                          <div id="slider-range"></div>
                          <div class="amount-cover">
-                             <input type="text" id="amount-min">
+                             <input type="text" name="amount-min" id="amount-min">
                              <span>&mdash;</span>
-                             <input type="text" id="amount-max">
+                             <input type="text" name="amount-max" id="amount-max">
                          </div>
                      </li>
                      <li class="widget wiget-price">
                          <h5 class="title">speeds</h5>
                          <div class="amount-cover">
-                             <input type="number" min="1" max="20" id="speeds">
+                             <input type="number" name="speeds_number" min="1" max="20" id="speeds">
                          </div>
                      </li>
                      <li class="widget wiget-price">
                          <h5 class="title">weight</h5>
                          <div class="amount-cover">
-                             <input type="number" min="1" max="100" id="weight" width="100px">
+                             <input type="number" name="weight" min="1" max="100" id="weight" width="100px">
                          </div>
                      </li>
-          
-                 </ul>
-                 <a href="{{ route('bikes') }}" class="btn"><span>search</span></a>
-                 <a href="#" class="reset-filter-btn">Reset Filters</a>
+                     <li class=" mar-5 flex-row">
+                         <button type="submit" class="btn btn-yellow"><span>Filter</span></button>
+                         <button  onclick="this.form.reset()" class="btn"><span> Reset </span></button>
+                        </li>
+                    </form>
+                </ul>
              </div>
+
              <div class="col-12 col-lg-9 shop-cover">
-          
+
                  <h2 class="title">road bike</h2>
                  <div class="shop-sort-cover">
                      <div class="sort-left">{{ $count = DB::table('products')->count() }} products found</div>
@@ -156,7 +163,7 @@
                                  <option>rent product</option>
                              </select>
                          </div>
-                   
+
                      </div>
                  </div>
                  <div class="shop-product-cover">
@@ -183,14 +190,14 @@
                                              <h6 class="prod-title"><a href="/product/single/{{ $product->product_id }}">{{ $product->name }}<br>{{ $product->category }}</a></h6>
                                              {{-- <a href="/product/single/{{$product->product_id}}" class="btn"><span>DETAILS </span></a> --}}
                                              @if ($product->availability !== 'booked')
-                                             <form action="{{ route('cart.store') }}" method="post">
-                                                 @csrf
-                                                 <input type="hidden" name="product_id" value="{{ $product->product_id }}">
-                                                 <button type="submit" class="btn btn-wishlist"><span>to cart</span></button>
-                                             </form>
+                                                 <form action="{{ route('cart.store') }}" method="post">
+                                                     @csrf
+                                                     <input type="hidden" name="product_id" value="{{ $product->product_id }}">
+                                                     <button type="submit" class="btn btn-wishlist"><span>to cart</span></button>
+                                                 </form>
                                              @else
-                                             <button class="btn" disabled><span> Bike Resered Cannot be booked</span></button>
-                                            @endif
+                                                 <button class="btn" disabled><span> Bike Resered Cannot be booked</span></button>
+                                             @endif
                                          </div>
                                          <div class="prod-info">
                                              <ul class="prod-list">
@@ -205,19 +212,8 @@
                                  </div>
                              </div>
                          @endforeach
-                        
                      </div>
-                     <div class="pagination-cover">
-                         <ul class="pagination">
-                             <li class="pagination-item item-prev"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                             <li class="pagination-item active"><a href="#">1</a></li>
-                             <li class="pagination-item"><a href="#">2</a></li>
-                             <li class="pagination-item"><a href="#">3</a></li>
-                             <li class="pagination-item"><a href="#">4</a></li>
-                             <li class="pagination-item"><a href="#">5</a></li>
-                             <li class="pagination-item item-next"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                         </ul>
-                     </div>
+                     {{ $products->links() }}
                  </div>
              </div>
          </div>

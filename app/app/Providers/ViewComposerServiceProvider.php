@@ -27,7 +27,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     View::composer([ 'index','bikes', 'contact','payement','checkout','checkout-success', 'about', 'dashboard', 'gallery', 'single_bike', 'profile.edit' ,'errors.404' ], function ($view) {
         if (Auth::check()) {
             $user = Auth::user();
-            $products = Product::paginate(16);
+            $products = Product::paginate(3);
             $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
                             ->where('carts.user_id', $user->user_id)
                             ->get(['carts.cart_id', 'products.name', 'products.price', 'products.category', 'products.size', 'products.image1']);
@@ -39,8 +39,8 @@ class ViewComposerServiceProvider extends ServiceProvider
         $likesCount =  Like::where('likes.user_id', $user->user_id)->count();                        
             $view->with('products', $products)->with('cartItems', $cartItems)->with('likeItems', $likeItems)->with('likesCount' , $likesCount);
         } else {
-            $products = Product::paginate(16);
-            $view->with('products', $products);
+            // $products = Product::paginate(16);
+            // $view->with('products', $products);
         }
     });
     }
