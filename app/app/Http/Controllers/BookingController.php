@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Stripe\Stripe;
@@ -9,6 +10,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Payment;
 use Stripe\Checkout\Session;
+use App\Mail\BookingConfirmation;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -42,7 +45,7 @@ class BookingController extends Controller
 
         $lineItems = [];
         $totalPrice = 0;
-        
+
         $code = substr(preg_replace('/[^0-9]/', '', uniqid()), 0, 9);
         foreach($cartItems as $product) {
             $totalPrice += $product->price * $request->booking_period_select * $request->booking_period * 100;
@@ -88,6 +91,7 @@ class BookingController extends Controller
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $sessionId = $request->get('session_id');
         $code = $request->get('code');
+        $user = auth()->user();
 
         $session = \Stripe\Checkout\Session::retrieve($sessionId);
         if (!$session) {
@@ -115,11 +119,13 @@ class BookingController extends Controller
             }
         }
 
-        // You can also retrieve the customer using 
+        Mail::to($user)->send(new BookingConfirmation($bookings));
+
+        // You can also retrieve the customer using
         return view('checkout-success', compact('bookings'));
     }
 
-    
+
     public function unbook(Request $request)
     {
 
@@ -197,4 +203,3 @@ class BookingController extends Controller
     //     return response('');
     // }
 }
-?>

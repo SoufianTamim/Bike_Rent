@@ -28,6 +28,7 @@ use App\Http\Controllers\ProfileController;
 //  =========================================================================================
 
 Route::get('/', function () { return view('index'); })->name('index');
+Route::get('/email', function () { return view('emails.booking_confirmation'); })->name('email');
 Route::get('/404', function () { return view('404'); })->name('404');
 Route::get('/about', function () {  return view('about'); })->name('about');
 Route::get('/contact', function () { return view('contact'); })->name('contact');
