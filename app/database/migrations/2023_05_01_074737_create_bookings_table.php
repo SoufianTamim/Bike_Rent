@@ -16,11 +16,11 @@ return new class extends Migration
                 $table->id('book_id');
                 $table->unsignedBigInteger('user_id');
                 $table->unsignedBigInteger('product_id');
-                $table->string('book_period');
-                $table->BigInteger('book_fees');
-                $table->text('payment_info');
-                $table->string('book_status');
-                $table->text('notes')->nullable();
+                $table->STRING('session_id');
+                $table->string('period');
+                $table->BigInteger('code');
+                $table->float('price');
+                $table->string('status');
                 $table->timestamps();
                 $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
                 $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');

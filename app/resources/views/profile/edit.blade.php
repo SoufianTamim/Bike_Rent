@@ -69,7 +69,7 @@
 				{{-- ================================== update password   ==================================== --}}
 				@include('profile.partials.update-password-form')
 				{{-- ================================== rentals of user  ===================================== --}}
-				@include('profile.partials.rental-user')
+				{{-- @include('profile.partials.rental-user') --}}
 				{{-- ================================== notifications of user  =============================== --}}
 				@include('profile.partials.notifs-user')
 				{{-- ================================== footer   ============================================= --}}

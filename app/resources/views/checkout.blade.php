@@ -13,7 +13,6 @@
                             $pricePerMonth = 0;
                         @endphp
                         @if ($cartItems !== [])
-
                         @foreach ($cartItems as $cartItem)
                             <div class="product-item" style="height: 200px; padding-top: 23px;">
                                 {{-- <span class="top-sale">top sale</span> --}}
@@ -45,6 +44,7 @@
     @php
         redirect()->route('bikes');
     @endphp
+
 
 
 @endif
@@ -111,5 +111,6 @@
     </script>
 
 
-    @include('layout.footer')
+
+@include('layout.footer')
 

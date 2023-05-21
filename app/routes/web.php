@@ -42,7 +42,7 @@ Route::get('/dashboard', function () { return view('dashboard'); })->middleware(
 
 
 Route::controller(BookingController::class)->group(function () {
-    Route::get('/profile', 'index')->middleware(['auth',  'verified'])->name('profile');
+    // Route::get('/profile', 'index')->middleware(['auth',  'verified'])->name('profile');
     Route::get('/payement', 'index')->middleware(['auth',  'verified'])->name('payement');
     Route::post('/checkout', 'checkout')->middleware(['auth',  'verified'])->name('checkout');
     Route::get('/success', 'success')->middleware(['auth',  'verified'])->name('success');
@@ -52,10 +52,14 @@ Route::controller(BookingController::class)->group(function () {
 });
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::controller(ProfileController::class)->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::post('/profile', 'index')->name('profile');
+        Route::get('/profile',  'edit')->name('profile.edit');
+        Route::patch('/profile',  'update')->name('profile.update');
+        Route::delete('/profile',  'destroy')->name('profile.destroy');
+    });
 });
 
 

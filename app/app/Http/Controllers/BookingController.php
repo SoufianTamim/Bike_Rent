@@ -16,12 +16,7 @@ class BookingController extends Controller
 {
     public function index()
     {
-        $user = auth()->user();
-        $bookings = Booking::join('products', 'bookings.product_id', '=', 'products.product_id')
-                        ->where('bookings.user_id', $user->user_id)
-                        ->get(['bookings.book_id', 'products.name', 'products.price', 'products.category']);
-
-        return view('profile.edit', ['bookings'=>$bookings]);
+        return view('checkout');
     }
 
     public function indexAll()
@@ -47,6 +42,8 @@ class BookingController extends Controller
 
         $lineItems = [];
         $totalPrice = 0;
+        
+        $code = substr(preg_replace('/[^0-9]/', '', uniqid()), 0, 9);
         foreach($cartItems as $product) {
             $totalPrice += $product->price * $request->booking_period_select * $request->booking_period * 100;
             $lineItem = [
@@ -68,7 +65,7 @@ class BookingController extends Controller
             'payment_method_types' => ['card'],
             'line_items' => $lineItems,
             'mode' => 'payment',
-            'success_url' => route('success', [], true) . "?session_id={CHECKOUT_SESSION_ID}",
+            'success_url' => route('success', [], true) . "?session_id={CHECKOUT_SESSION_ID}&code={$code}",
             'cancel_url' => route('cancel', [], true),
         ]);
         foreach($cartItems as $product) {
@@ -77,6 +74,7 @@ class BookingController extends Controller
             $booking->product_id = $product->product_id;
             $booking->session_id = $session->id;
             $booking->period = $request->booking_period * $request->booking_period_select . ' DAYS';
+            $booking->code = $code;
             $booking->price = $totalPrice / 100;
             $booking->status = 'unpaid';
             $booking->save();
@@ -89,6 +87,8 @@ class BookingController extends Controller
     {
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $sessionId = $request->get('session_id');
+        $code = $request->get('code');
+
         $session = \Stripe\Checkout\Session::retrieve($sessionId);
         if (!$session) {
             throw new NotFoundHttpException();
@@ -101,8 +101,6 @@ class BookingController extends Controller
             throw new NotFoundHttpException();
         }
 
-        // dd($bookings);
-
         foreach ($bookings as $booking) {
             if ($booking->status === 'unpaid') {
                 // Update the booking status to 'paid'
@@ -110,6 +108,7 @@ class BookingController extends Controller
                 $product = Product::where('product_id', $booking->product_id)->first();
                 $product->availability = 'booked';
                 $booking->status = 'paid';
+                $booking->code = $code;
                 $booking->save();
                 $product->save();
                 $cart->delete();
@@ -117,8 +116,38 @@ class BookingController extends Controller
         }
 
         // You can also retrieve the customer using 
-        return view('checkout-success', compact('booking'));
+        return view('checkout-success', compact('bookings'));
     }
+
+    
+    public function unbook(Request $request)
+    {
+
+        $code = $request->code;
+
+        $bookings = Booking::where('code', $code)->get();
+
+        foreach ($bookings as $booking) {
+            if ($booking->status === 'paid') {
+
+                $product = Product::where('product_id', $booking->product_id)->first();
+                $product->availability = 'available';
+
+
+                $booking->status = 'completed';
+                $booking->code = $code;
+
+                $booking->save();
+                $product->save();
+            }
+        }
+
+
+    }
+
+
+
+
 
 
 
@@ -168,3 +197,4 @@ class BookingController extends Controller
     //     return response('');
     // }
 }
+?>
