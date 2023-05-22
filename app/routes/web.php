@@ -27,20 +27,14 @@ use App\Http\Controllers\ProfileController;
 //  =================================== DIRECTORY ===========================================
 //  =========================================================================================
 
-Route::get('/', function () { return view('index'); })->name('index');
-Route::get('/email', function () { return view('emails.booking_confirmation'); })->name('email');
-Route::get('/404', function () { return view('404'); })->name('404');
-Route::get('/about', function () {  return view('about'); })->name('about');
-Route::get('/contact', function () { return view('contact'); })->name('contact');
-Route::get('/gallery', function () { return view('gallery'); })->name('gallery');
-Route::get('/terms', function () { return view('terms'); })->name('terms');
-
-
-
-Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
+Route::view( '/', 'index')->name('index');
+Route::view('/404' ,'404' )->name('404');
+Route::view('/about', 'about')->name('about');
+Route::view('/contact', 'contact')->name('contact');
+Route::view('/gallery', 'gallery')->name('gallery');
+Route::view('/terms', 'terms')->name('terms');
+Route::view('/email' ,'emails.booking_confirmation')->name('email');
+Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(BookingController::class)->group(function () {
     // Route::get('/profile', 'index')->middleware(['auth',  'verified'])->name('profile');

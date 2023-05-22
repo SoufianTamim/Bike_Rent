@@ -21,7 +21,7 @@ class BookingController extends Controller
     {
         return view('checkout');
     }
-
+    
     public function indexAll()
     {
         $bookings = Booking::join('products', 'bookings.product_id', '=', 'products.product_id')
@@ -37,7 +37,6 @@ class BookingController extends Controller
     public function checkout(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
-
         $user = Auth::user();
         $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
             ->where('carts.user_id', $user->user_id)
@@ -45,7 +44,6 @@ class BookingController extends Controller
 
         $lineItems = [];
         $totalPrice = 0;
-
         $code = substr(preg_replace('/[^0-9]/', '', uniqid()), 0, 9);
         foreach($cartItems as $product) {
             $totalPrice += $product->price * $request->booking_period_select * $request->booking_period * 100;
@@ -97,14 +95,10 @@ class BookingController extends Controller
         if (!$session) {
             throw new NotFoundHttpException();
         }
-
-
         $bookings = Booking::where('session_id', $sessionId)->get();
-
         if ($bookings->isEmpty()) {
             throw new NotFoundHttpException();
         }
-
         foreach ($bookings as $booking) {
             if ($booking->status === 'unpaid') {
                 // Update the booking status to 'paid'
@@ -118,88 +112,26 @@ class BookingController extends Controller
                 $cart->delete();
             }
         }
-
         Mail::to($user)->send(new BookingConfirmation($bookings));
 
         // You can also retrieve the customer using
         return view('checkout-success', compact('bookings'));
     }
 
-
     public function unbook(Request $request)
     {
-
         $code = $request->code;
-
         $bookings = Booking::where('code', $code)->get();
-
         foreach ($bookings as $booking) {
             if ($booking->status === 'paid') {
-
                 $product = Product::where('product_id', $booking->product_id)->first();
                 $product->availability = 'available';
-
-
                 $booking->status = 'completed';
                 $booking->code = $code;
-
                 $booking->save();
                 $product->save();
             }
         }
-
-
     }
 
-
-
-
-
-
-
-
-
-    //    public function webhook(Request $request)
-    // {
-    //     $payload = $request->getContent();
-    //     $sig_header = $request->header('Stripe-Signature');
-    //     $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');
-
-    //     try {
-    //         $event = \Stripe\Webhook::constructEvent(
-    //             $payload, $sig_header, $endpoint_secret
-    //         );
-    //     } catch (\Exception $e) {
-    //         return response('', 400);
-    //     }
-
-    //     // Handle the event
-    //     switch ($event->type) {
-    //         case 'payment_intent.succeeded':
-    //             $paymentIntent = $event->data->object;
-
-    //             $payment = Payment::where('session_id', $paymentIntent->id)->first();
-    //             if ($payment && $payment->status !== 'succeeded') {
-    //                 $payment->status = 'succeeded';
-    //                 $payment->save();
-
-    //                 $booking = $payment->owner; // Assuming the payment belongs to an booking model
-    //                 if ($booking && $booking->status === 'unpaid') {
-    //                     // Update the booking status to 'paid'
-    //                     $booking->status = 'paid';
-    //                     $booking->save();
-    //                     // Send email to customer
-    //                 }
-    //             }
-
-    //             break;
-
-    //         // Handle other event types as needed
-
-    //         default:
-    //             echo 'Received unknown event type: ' . $event->type;
-    //     }
-
-    //     return response('');
-    // }
 }

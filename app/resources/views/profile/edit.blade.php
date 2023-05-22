@@ -35,17 +35,17 @@
                         <i class="fa fa-key text-center mr-1"></i>
                         Password
                     </a>
-                    <a class="nav-link" id="rentals-tab" data-toggle="pill" href="#rentals" role="tab" aria-controls="rentals" aria-selected="false">
+                    {{-- <a class="nav-link" id="rentals-tab" data-toggle="pill" href="#rentals" role="tab" aria-controls="rentals" aria-selected="false">
                         <i class="fa fa-user text-center mr-1"></i>
                         Rentals
-                    </a>
+                    </a> --}}
                     {{-- <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
 							<i class="fa fa-tv text-center mr-1"></i> 
 							Application
 						</a> --}}
                     <a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
-                        <i class="fa fa-bell text-center mr-1"></i>
-                        Notification
+                        <i class="fa fa-user text-center mr-1"></i>
+                        Rentals
                     </a>
                     <form method="POST" action="{{ route('logout') }}" id="form">
                         @csrf

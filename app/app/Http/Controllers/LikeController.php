@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Session;
@@ -14,48 +15,39 @@ class LikeController extends Controller
      */
     public function index()
     {
-    if(auth()->check()){
-
-        
-        $user = auth()->user();
-        $likeItems = Like::join('products', 'likes.product_id', '=', 'products.product_id')
-                        ->where('likes.user_id', $user->user_id)
-                        ->get(['likes.like_id', 'products.name', 'products.image1', 'products.price']);
-        return view('bikes', [ 'likeItems'=>$likeItems]);
-    }else{
-        return view('bikes');
-    }
+        if(auth()->check()) {
+            $user = auth()->user();
+            $likeItems = Like::join('products', 'likes.product_id', '=', 'products.product_id')
+                            ->where('likes.user_id', $user->user_id)
+                            ->get(['likes.like_id', 'products.name', 'products.image1', 'products.price']);
+            return view('bikes', [ 'likeItems'=>$likeItems]);
+        } else {
+            return view('bikes');
+        }
     }
 
 
 
-public function store(Request $request)
-{
-    $user = $request->user();
-    $product = Product::findOrFail($request->input('product_id'));
-    $liked = $user->likes->where('product_id', $product->product_id)->first();
-
-    if ($liked) {
-        return redirect()->route('bikes');
-    }
-
-    $like = $user->likes()->create([
-        'product_id' => $product->product_id,
-    ]);
-
-    if ($like) {
-        return redirect()->route('bikes');
-    }
-}
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $user = $request->user();
+        $product = Product::findOrFail($request->input('product_id'));
+        $liked = $user->likes->where('product_id', $product->product_id)->first();
+
+        if ($liked) {
+            return redirect()->route('bikes');
+        }
+
+        $like = $user->likes()->create([
+            'product_id' => $product->product_id,
+        ]);
+
+        if ($like) {
+            return redirect()->route('bikes');
+        }
     }
+
+
 
     public function add(Request $request)
     {
@@ -68,39 +60,6 @@ public function store(Request $request)
         $like->save();
 
         return redirect()->route('like.index')->with('success', 'Product added to like.');
-    }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Like $like)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Like $like)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Like $like)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Like $like)
-    {
-        //
     }
 
     public function deleteLikeItem($id)

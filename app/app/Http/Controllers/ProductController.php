@@ -203,7 +203,7 @@ class ProductController extends Controller
         $product = Product::where('product_id', $id)->first();
         $product->delete();
         return redirect('/product');
-    } 
+    }
 
 
     public function filter(Request $request)
@@ -220,31 +220,31 @@ class ProductController extends Controller
 
         // Apply filters to the query
         $query = Product::query();
-        
+
         if ($category) {
             $query->where('category', $category);
         }
-        
+
         if ($brand) {
             $query->where('brand', $brand);
         }
-        
+
         if ($condition) {
             $query->where('condition', $condition);
         }
-        
+
         if ($wheelSize) {
             $query->where('wheel_size', $wheelSize);
         }
-        
+
         if ($minPrice && $maxPrice) {
             $query->whereBetween('price', [$minPrice, $maxPrice]);
         }
-        
+
         if ($speeds) {
             $query->where('speeds', $speeds);
         }
-        
+
         if ($weight) {
             $query->where('weight', $weight);
         }
