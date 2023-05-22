@@ -7,22 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class BookingConfirmation extends Mailable
+class WelcomeEmail extends Mailable
 {
     use Queueable;
     use SerializesModels;
 
-    public $booking;
+    public $user;
 
     /**
      * Create a new message instance.
      *
-     * @param  \App\Models\Booking  $booking
+     * @param  \App\Models\user  $user
      * @return void
      */
-    public function __construct($booking) 
+    public function __construct($user) 
     {
-        $this->booking = $booking;
+        $this->user = $user;
     }
 
     /**
@@ -32,7 +32,7 @@ class BookingConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->subject('T-BIKE Confirmation')
-                    ->view('emails.booking_confirmation');
+        return $this->subject('Welcome To T-BIKE')
+                    ->view('emails.welcome');
     }
 }

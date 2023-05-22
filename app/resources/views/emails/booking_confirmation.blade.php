@@ -14,7 +14,7 @@
     
     {{-- {{$bookings[0]->code}} --}}
 
-    <button class="btn" disabled ><span>3275628573828</span></button>
+    <button class="btn" disabled ><span>3434243243243243564908976446565</span></button>
         
 </body>
 </html>

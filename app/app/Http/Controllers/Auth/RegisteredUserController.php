@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\View\View;
+use App\Mail\WelcomeEmail;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Auth\Events\Registered;
 use App\Providers\RouteServiceProvider;
@@ -56,7 +58,6 @@ class RegisteredUserController extends Controller
             $profile_picture_url = Storage::url($path);
         }
 
-        
         $user = User::create([
             'fullname' => $request->fullname,
             'cin'  => $request->cin,
@@ -69,11 +70,12 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        Mail::to($user)->send(new WelcomeEmail($user));
+
         Auth::login($user);
 
-        // return redirect(RouteServiceProvider::HOME);
-        
         return redirect()->intended(route('profile.edit'));
+
 
     }
 }

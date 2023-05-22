@@ -18,7 +18,6 @@ class LikeController extends Controller
 
         
         $user = auth()->user();
-        // $products = Product::all();
         $likeItems = Like::join('products', 'likes.product_id', '=', 'products.product_id')
                         ->where('likes.user_id', $user->user_id)
                         ->get(['likes.like_id', 'products.name', 'products.image1', 'products.price']);

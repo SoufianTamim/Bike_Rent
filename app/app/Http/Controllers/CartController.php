@@ -17,7 +17,6 @@ class CartController extends Controller
     public function index()
     {
         $user = auth()->user();
-        // $products = Product::paginate(2);
         $cartItems = Cart::join('products', 'carts.product_id', '=', 'products.product_id')
                         ->where('carts.user_id', $user->user_id)
                         ->get(['carts.cart_id', 'products.name', 'products.price', 'products.category']);
