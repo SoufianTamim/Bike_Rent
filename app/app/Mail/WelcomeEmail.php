@@ -3,9 +3,10 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class WelcomeEmail extends Mailable
 {
@@ -32,7 +33,8 @@ class WelcomeEmail extends Mailable
      */
     public function build()
     {
+        $user = Auth::user();
         return $this->subject('Welcome To T-BIKE')
-                    ->view('emails.welcome');
+                    ->view('emails.welcome')->with('user' , $user);
     }
 }

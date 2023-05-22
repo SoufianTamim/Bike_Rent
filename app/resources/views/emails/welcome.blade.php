@@ -47,7 +47,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Thank you for Joining T-BIKE!</h1>
+        <h1>Thank you for {{$user->name}} Joining T-BIKE!</h1>
         <p>We are excited to have you as part of our bike rental community.</p>
         
         <p>At T-BIKE, we provide high-quality bikes for you to explore your surroundings conveniently. Whether you want to ride through scenic trails, commute to work, or enjoy a leisurely ride in the city, our bikes are designed to meet your needs.</p>

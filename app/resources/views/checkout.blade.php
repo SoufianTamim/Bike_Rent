@@ -64,7 +64,7 @@
                 <div class="flex-row">
                     <input type="number" id="period-input" name="booking_period" value="1" min="1" max="10000" onkeyup="calculateTotalPrice()">
                     <select class="nice-select" id="period-select" name="booking_period_select" onchange="calculateTotalPrice()">
-                        <option value="1" data-price="{{ $pricePerDay }}">DAYS</option>
+                        <option value="1" data-price="{{ $pricePerDay }}">DAY</option>
                         <option value="7" data-price="{{ $pricePerWeek }}">WEEK</option>
                         <option value="30" data-price="{{ $pricePerMonth }}">MONTH</option>
                     </select>

@@ -2,10 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\Booking;
+use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class BookingConfirmation extends Mailable
 {
@@ -30,9 +33,19 @@ class BookingConfirmation extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(Request $request)
     {
+        $user = Auth::user();
+        $code = $request->query('code');
+        $user_id = $user->user_id;
+        
+        $bookings = Booking::where('code', $code)
+            ->where('user_id', $user_id)
+            ->join('products', 'bookings.product_id', '=', 'products.product_id')
+            ->select('bookings.*', 'products.name', 'products.price')
+            ->get();
+
         return $this->subject('T-BIKE Confirmation')
-                    ->view('emails.booking_confirmation');
+                    ->view('emails.booking_confirmation')->with('bookings',$bookings);
     }
 }

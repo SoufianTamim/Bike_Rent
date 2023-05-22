@@ -67,7 +67,7 @@ $routeName = Route::currentRouteName();
             <span></span>
         </a> --}}
 
-        {{-- @include('layout.top-panel') --}}
+        @include('layout.top-panel')
 
         <div class="header-menu">
             <div class="container">
