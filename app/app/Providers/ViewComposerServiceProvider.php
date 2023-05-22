@@ -39,7 +39,7 @@ class ViewComposerServiceProvider extends ServiceProvider
 
 
                 $bookings = Booking::join('products', 'bookings.product_id', '=', 'products.product_id')
-                                    ->get(['bookings.Book_id', 'products.name', 'products.price', 'products.category']);
+                                    ->get(['*']);
 
                 $likesCount =  Like::where('likes.user_id', $user->user_id)->count();
                 $view->with('products', $products)->with('cartItems', $cartItems)->with('likeItems', $likeItems)->with('likesCount', $likesCount)->with('bookings', $bookings);
