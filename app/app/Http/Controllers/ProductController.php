@@ -208,11 +208,10 @@ class ProductController extends Controller
 
     public function filter(Request $request)
     {
-        // Get the filter parameters from the request
         $category = $request->input('category');
         $brand = $request->input('brand');
         $condition = $request->input('condition');
-        $wheelSize = $request->input('wheelSize');
+        $wheelSize = $request->input('size');
         $minPrice = $request->input('minPrice');
         $maxPrice = $request->input('maxPrice');
         $speeds = $request->input('speeds');
@@ -221,12 +220,13 @@ class ProductController extends Controller
         // Apply filters to the query
         $query = Product::query();
 
+
         if ($category) {
             $query->where('category', $category);
         }
 
         if ($brand) {
-            $query->where('brand', $brand);
+            $query->where('manufacturer', $brand);
         }
 
         if ($condition) {
@@ -234,7 +234,7 @@ class ProductController extends Controller
         }
 
         if ($wheelSize) {
-            $query->where('wheel_size', $wheelSize);
+            $query->where('size', $wheelSize);
         }
 
         if ($minPrice && $maxPrice) {
@@ -250,10 +250,33 @@ class ProductController extends Controller
         }
 
         // Fetch the filtered results
-        $products = $query->get();
+        $productsFilterd = $query->paginate(15);
+        
+        return view('bikes', compact('productsFilterd'));
 
-        // Pass the filtered results to the view
-        return view('bikes.index', compact('products'));
+    }
+
+    public function sort(Request $request)
+    {
+        // Get the selected sorting option from the request
+        $sortOption = $request->input('sort');
+
+        // Apply the sorting logic to the query
+        $query = Product::query();
+
+        if ($sortOption === 'best-renting') {
+            $query->orderBy('renting_count', 'desc');
+        } elseif ($sortOption === 'new-product') {
+            $query->orderBy('created_at', 'desc');
+        } elseif ($sortOption === 'available') {
+            $query->where('availability', 'available');
+        }
+
+        // Fetch the sorted results
+        $sortedProducts = $query->paginate(15);
+
+        // Pass the sorted products to the view
+        return view('bikes', compact('sortedProducts'));
     }
 
 }
