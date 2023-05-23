@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-field">
-            <x-text-input id="password" class="input" type="password" name="password" placeholder="Password" required />
+            <x-text-input id="password" class="input" type="password" :value="old('password')" name="password" placeholder="Password" required />
             {{-- <i class='bx bx-lock-alt'></i> --}}
             <x-input-error :messages="$errors->get('password')" />
         </div>

@@ -33,7 +33,7 @@
                     <li><a target="_blank" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                     <li><a target="_blank" href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                 </ul>
-                <div class="footer-autor">Questions? Please write us at: <a href="mailto:soufiantamim22@gmail.com">soufiantamim22@gmail.com</a></div>
+                <div class="footer-autor">Questions? Please write us at: <a href="mailto:contact@bike.tamimsoufian.com">contact@bike.tamimsoufian.com</a></div>
             </div>
             <div class="footer-item col-md-5 col-lg-4">
                 <h6>shop</h6>
@@ -69,20 +69,20 @@ use Illuminate\Support\Facades\Route;
 $routeName = Route::currentRouteName();
 ?>
 @if ($routeName === 'index')
-<script src="{{ asset('/js/jquery-2.2.4.min.js')}}"></script>
-<script src="{{ asset('/js/slick.min.js')}}"></script>
-<script src="{{ asset('/js/jquery.nice-select.js')}}"></script>
-<script src="{{ asset('/js/wow.js')}}"></script>
-<script src="{{ asset('/js/rx-lazy.js')}}"></script>
-<script src="{{ asset('/js/scripts.js')}}"></script>
-@elseif ($routeName === 'sbike' || $routeName === 'gallery' )
-<script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
-<script src="{{ asset('js/slick.min.js') }}"></script>
-<script src="{{ asset('js/jquery-ui.js')}}"></script>
-<script src="{{ asset('js/jquery.nice-select.js') }}"></script>
-<script src="{{ asset('js/isotope.pkgd.js') }}"></script>
-<script src="{{ asset('js/jquery.fancybox.js') }}"></script>
-<script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="{{ asset('/js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('/js/slick.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.nice-select.js') }}"></script>
+    <script src="{{ asset('/js/wow.js') }}"></script>
+    <script src="{{ asset('/js/rx-lazy.js') }}"></script>
+    <script src="{{ asset('/js/scripts.js') }}"></script>
+@elseif ($routeName === 'sbike' || $routeName === 'gallery')
+    <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/jquery.nice-select.js') }}"></script>
+    <script src="{{ asset('js/isotope.pkgd.js') }}"></script>
+    <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
 @else
     <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
     <script src="{{ asset('js/isotope.pkgd.js') }}"></script>
@@ -93,11 +93,12 @@ $routeName = Route::currentRouteName();
     <script src="{{ asset('js/rx-lazy.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
 @endif
-    <script src="{{ asset('js/app.js') }}"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 </body>
+
 </html>

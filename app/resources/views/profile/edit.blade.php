@@ -12,10 +12,10 @@
                 <div class="p-4">
                     {{-- ================================== profile picture ==================================== --}}
                     <div class="img-circle text-center mb-3">
-                        @if (auth()->check() && auth()->user()->profile_picture)
+                        @if (auth()->check() && auth()->user()->profile_picture !== null )
                             <img src="{{ asset('' . Auth::user()->profile_picture) }}" alt="Profile Picture">
                         @else
-                            <img src="{{ asset('img/user.png') }}" alt="{{ auth()->user()->fullname }} profile picture" class="shadow">
+                            <img src="{{ asset('img/user1.png') }}" alt="{{ auth()->user()->fullname }} profile picture" class="shadow" >
                         @endif
                     </div>
                     {{-- ================================== Full user name  ==================================== --}}

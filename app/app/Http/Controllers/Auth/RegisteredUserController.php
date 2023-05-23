@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\View\View;
 use App\Mail\WelcomeEmail;
@@ -42,7 +43,21 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'phone'     => ['required', 'string', 'max:255',  'unique:'.User::class],
             'address'  => ['required', 'string', 'max:255'],
-            'birthdate' => ['required', 'date'],
+            // 'birthdate' => ['required', 'date'],
+               'birthdate' => [
+                    'required',
+                    'date',
+                    // Adding custom rule to check if the user is at least 16 years old
+                    function ($attribute, $value, $fail) {
+                        $minimumAge = 16;
+                        $date = Carbon::createFromFormat('Y-m-d', $value);
+                        $diff = $date->diffInYears(Carbon::now());
+
+                        if ($diff < $minimumAge) {
+                            $fail('You must be at least 16 years old to register.');
+                        }
+                    },
+                ],
             'profile_picture' => ['image','max:2048', 'mimes:jpeg,jpg,png,gif'],
             'gender' => ['required', 'string'],
             'password'  => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
@@ -74,7 +89,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->intended(route('profile.edit'));
+        return redirect()->route('index');
 
 
     }

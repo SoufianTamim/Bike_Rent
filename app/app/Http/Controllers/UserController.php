@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\ContactEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -15,6 +17,12 @@ class UserController extends Controller
         //
         $users = User::paginate(15);
         return view('user.user', ['users' => $users]);
+    }
+
+    public function contact(Request $request)
+    {
+        $mail = Mail::to($request->email)->send(new ContactEmail($request));
+        return redirect()->route('contact')->with('confirm', 'Successfully received');
     }
 
     public function carts()
