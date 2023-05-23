@@ -23,6 +23,8 @@
                         <option>Kids Bike</option>
                         <option>Cruiser Bike</option>
                         <option>Tandem Bike</option>
+                        <option> accessories & clothing</option>
+                        <option> safety and Locks</option>
                     </select>
                 </li>
                 <li>

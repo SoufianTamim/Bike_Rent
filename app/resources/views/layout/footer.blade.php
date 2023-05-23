@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="footer-copyright"><a target="_blank" href="https://soufian.com/">Soufian</a> © 2019. All Rights Reserved.</div>
+            <div class="footer-copyright"><a target="_blank" href="https://soufian.com/">Soufian</a> © 2023. All Rights Reserved.</div>
             <ul class="footer-pay">
                 <li><a href="#"><img src="../img/footer-pay-1.png" alt="img"></a></li>
                 <li><a href="#"><img src="../img/footer-pay-2.png" alt="img"></a></li>

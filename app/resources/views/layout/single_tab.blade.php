@@ -69,7 +69,7 @@
 									<div class="review-avatar"><img src="../img/testimonials-1.png" alt="img"></div>
 									<div class="review-content">
 										<div class="name">Sam Piters</div>
-										<div class="date">Dec 26, 2019</div>
+										<div class="date">Dec 26, 2023</div>
 										<p class="review-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis cupiditate vel dicta animi nostrum delectus at doloremque nam eligendi unde! Nulla temporibus ut, libero, architecto tempora impedit ipsa mollitia unde.</p>
 										<a href="#" class="review-btn"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
 									</div>
@@ -80,7 +80,7 @@
 											<div class="review-avatar"><img src="../img/testimonials-2.png" alt="img"></div>
 											<div class="review-content">
 												<div class="name">Anna Smith</div>
-												<div class="date">Dec 27, 2019</div>
+												<div class="date">Dec 27, 2023</div>
 												<p class="review-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi a cum corporis, minus reprehenderit quo aut at, quas quisquam?</p>
 												<a href="#" class="review-btn"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
 											</div>
