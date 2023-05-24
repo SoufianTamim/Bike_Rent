@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Mail\ContactEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\SubscriptionConfirmation;
+
 
 class UserController extends Controller
 {
@@ -41,4 +43,14 @@ class UserController extends Controller
         $user->save();
         return redirect('/user');
     }
+
+    // Inside your controller method or wherever you handle the subscription process
+    public function subscribe(Request $request)
+    {
+        $request->email;
+        // dd($request->email);
+        Mail::to($request->email)->send(new SubscriptionConfirmation());
+        return redirect()->route('index');
+    }
+
 }

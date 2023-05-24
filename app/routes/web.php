@@ -74,6 +74,8 @@ Route::middleware(['auth', 'checkadmin', 'verified'])->group(function () {
 
 Route::get('/product/filter', [ProductController::class, 'filter'])->name('product-filter');
 Route::get('/product/sort', [ProductController::class, 'sort'])->name('sortProducts');
+Route::post('/user/subscribe', [UserController::class, 'subscribe'])->name('subscribe');
+
 
 
 

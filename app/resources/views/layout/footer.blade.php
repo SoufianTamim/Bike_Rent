@@ -5,9 +5,10 @@
             <div class="footer-subscribe col-md-7 col-lg-8">
                 <h6>subscribe</h6>
                 <p>Subscribe us and you won't miss the new arrivals, as well as discounts and sales.</p>
-                <form class="subscribe-form">
+                <form class="subscribe-form" action={{route('subscribe')}}  method="post" >
+                    @csrf
                     <i class="fa fa-at" aria-hidden="true"></i>
-                    <input class="inp-form" type="email" name="subscribe" placeholder="E-mail">
+                    <input class="inp-form" type="email" name="email" placeholder="E-mail">
                     <button type="submit" class="btn btn-form"><span>send</span></button>
                 </form>
             </div>
