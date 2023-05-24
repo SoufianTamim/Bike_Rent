@@ -61,21 +61,18 @@ $routeName = Route::currentRouteName();
     <!--============== PRELOADER END ==============-->
     <!-- =================== HEADER =================== -->
         <header class="header">
-        {{-- <a href="#" class="nav-btn">
+        <a href="#" class="nav-btn">
             <span></span>
             <span></span>
             <span></span>
-        </a> --}}
-
+        </a>
         @include('layout.top-panel')
-
         <div class="header-menu">
             <div class="container">
                 <a href="{{ route('index') }}" class="logo"><img src="{{asset('img/favicon.png')}}" alt="logo"></a>
                 <nav class="nav-menu">
                 @if (isset($pageName) && $pageName === '404')
                     <ul class="nav-list">
-
                         <li ><a href="{{ route('index') }}">Home</a></li>
                         <li ><a href="{{ route('bikes') }}">bikes</a></li>
                         <li ><a href="{{ route('gallery') }}">Gallery</a></li>
@@ -93,7 +90,7 @@ $routeName = Route::currentRouteName();
                         @endif
                     </ul>
                 @else
-                 <ul class="nav-list">
+                <ul class="nav-list">
 
                         <li class="{{ Request::route()->getName() != null && Request::route()->getName() == 'index' ? 'active' : '' }}"><a href="{{ route('index') }}">Home</a></li>
                         <li class="{{ Request::route()->getName() == 'bikes' ? 'active' : '' }}"><a href="{{ route('bikes') }}">bikes</a></li>

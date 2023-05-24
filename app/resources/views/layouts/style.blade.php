@@ -129,17 +129,6 @@
         color: rgb(100, 100, 100);
     }
 
-    .links {
-        margin-top: 5rem;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .link {
-        display: block;
-        margin: 0 auto;
-        color: black;
-    }
 
     .link-cont {
         background-color: #fff;
@@ -281,7 +270,6 @@
         box-shadow: 2px 5px 5px #888888;
         padding: 23px;
         margin-top: 50px;
-
     }
 
     form {
@@ -321,19 +309,7 @@
 
 
 
-    .svg1,
-    .svg {
-        width: 30px !important;
-        height: 16px !important;
-    }
 
-    .svg2 {
-        margin-left: 1.6rem;
-    }
-
-    .link-pag {
-        margin: 1rem;
-    }
 
     form {
         display: flex;
@@ -375,15 +351,12 @@
         margin-bottom: 5px;
     }
 
+h1{
+    color: white;
+}
 
-
-
-
-    .pagination-cont {
-        margin: 3rem;
-        display: block;
-        margin: 23px auto;
-        width: 12rem;
-        background-color: transparent;
-    }
+.fa-angle-right,
+.fa-angle-left{
+   margin: .4rem; 
+}
 </style>

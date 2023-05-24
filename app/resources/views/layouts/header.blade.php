@@ -2,11 +2,10 @@
     <div class="logo">
     <a href="#"> Dashboard </a>
     </div>
-
     <div class="header-icons">
         <div class="account">
-            <img src="" alt="">
-            <h4>himself</h4>
+            <img src="{{auth()->user()->profile_picture}}" alt="">
+            <h4>{{auth()->user()->fullname}}</h4>
         </div>
     </div>
 </header>      

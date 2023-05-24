@@ -21,7 +21,7 @@
                             </div>
                             <p class="not-product">No products in the cart.</p>
                         @elseif ($cartItems->count() >= 1)
-                            <div class="title">
+                            <div class="title flex">
                                 <h5>Cart</h5>
                                 <form action='/cart/clear/{{ Auth::user()->user_id }}' method="post">
                                     @csrf
