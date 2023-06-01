@@ -359,4 +359,49 @@ h1{
 .fa-angle-left{
    margin: .4rem; 
 }
+
+
+.pagination-cover {
+    margin-top: 94px;
+}
+.pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.pagination-item:not(:last-child) {
+    margin-right: 10px;
+}
+.pagination-item a {
+    padding-top: 1px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    width: 38px;
+    text-align: center;
+    border: 2px solid #ebedec;
+    color: #535b65;
+    display: block;
+    border-radius: 0;
+}
+.pagination-item a i {
+    vertical-align: 1px;
+    font-weight: 900;
+    color: #535b65;
+}
+.pagination-item.active a {
+    border-color: #ffd910;
+    background-color: #ffd910;
+}
+.pagination-item.active {
+    pointer-events: none;
+}
+.pagination-item:hover a {
+    border-color: #ffd910;
+}
+ul {
+    list-style: none;
+}
 </style>

@@ -1,6 +1,6 @@
 @props(['id', 'name', 'options', 'required' => false, 'autocomplete' => null, 'placeholder' => null, 'disabled' => false])
 
-<select {{ $attributes->merge(['class' => 'form-control' . ($errors->has($name) ? ' is-invalid' : ''), 'id' => $id, 'name' => $name, 'required' => $required, 'autocomplete' => $autocomplete, 'disabled' => $disabled]) }}>
+<select {{ $attributes->merge(['class' => 'nice-select' . ($errors->has($name) ? ' is-invalid' : ''), 'id' => $id, 'name' => $name, 'required' => $required, 'autocomplete' => $autocomplete, 'disabled' => $disabled]) }}>
     @if ($placeholder)
         <option value="" disabled {{ old($name) === null ? 'selected' : '' }}>{{ $placeholder }}</option>
     @endif

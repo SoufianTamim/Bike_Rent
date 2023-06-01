@@ -1178,6 +1178,7 @@ textarea::placeholder {
     color: #9ca4ab;
 }
 input[type="text"],
+input[type="file"],
 input[type="password"],
 input[type="number"],
 input[type="tel"],
@@ -1201,6 +1202,7 @@ textarea {
 }
 input[type="search"],
 input[type="text"],
+input[type="file"],
 input[type="password"],
 input[type="number"],
 input[type="tel"],
@@ -1217,9 +1219,11 @@ textarea {
 input[type="search"]:hover,
 input[type="search"]:focus,
 input[type="text"]:hover,
+input[type="file"]:hover,
 input[type="password"]:hover,
 input[type="number"]:hover,
 input[type="text"]:focus,
+input[type="file"]:focus,
 input[type="password"]:focus,
 input[type="number"]:focus,
 input[type="tel"]:hover,
@@ -1479,6 +1483,7 @@ button.btn {
     .search-form .inp-form,
     .subscribe-form .inp-form,
     input[type="text"],
+    input[type="file"],
     input[type="password"],
         input[type="number"],
     input[type="tel"],
@@ -8076,8 +8081,11 @@ body {
 }
 
 .flex-row{
-    display: flex;
-    flex-direction: row;
+    display: flex !important;
+    flex-direction: row !important;
+}
+.between{
+    justify-content: space-between !important;
 }
 
 .cards-checkout{
@@ -8099,5 +8107,36 @@ body {
     margin-top: 4rem;
 }
 .mar-5 .btn-yellow{
+    margin-right: .3rem;
+}
+
+.input-field{
+    display: block;
+    margin: 1rem auto;
+    width: 100%;
+}
+#container{
+    display: block;
+    margin: 5rem auto;
+    width: 50%;
+}
+
+.btn-login{
+    display: block ;
+    margin: 0 auto ;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dont{
+    margin-bottom: 2rem;
+}
+
+.input-field{
     margin-right: .3rem;
 }
