@@ -38,6 +38,7 @@ Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('
 
 Route::controller(BookingController::class)->group(function () {
     // Route::get('/profile', 'index')->middleware(['auth',  'verified'])->name('profile');
+    Route::get('/booking', 'indexAll')->middleware(['auth', 'checkadmin', 'verified'])->name('booking');
     Route::get('/payement', 'index')->middleware(['auth',  'verified'])->name('payement');
     Route::post('/checkout', 'checkout')->middleware(['auth',  'verified'])->name('checkout');
     Route::get('/success', 'success')->middleware(['auth',  'verified'])->name('success');
@@ -102,6 +103,7 @@ Route::controller(LikeController::class)->group(function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/user', 'index')->middleware(['auth', 'checkadmin', 'verified'])->name('user');
+
     Route::post('/contact/send/', 'contact')->middleware(['auth', 'verified']);
     // Route::get('/user/new', 'create')->middleware(['auth', 'checkadmin', 'verified'])->name('new-user');
     // Route::get('/user/edit/{id}', 'edit')->middleware(['auth', 'checkadmin', 'verified']);

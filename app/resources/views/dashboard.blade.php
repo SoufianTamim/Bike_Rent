@@ -1,36 +1,12 @@
 <x-master-layout>
          <!-- Page Content -->
     <div class="main-body">
-      <h2>Dashboard</h2>
       <div class="promo_card">
-        <h1>Welcome to Dashboard</h1>
-        <button>Learn More</button>
+        <h1>Welcome to T-BIKE "{{auth()->user()->fullname}}" </h1>
       </div>
     <div class="history_lists">
-        <div class="list1">
-          <div class="row">
-            <h4>History</h4>
-            <a href="#">See all</a>
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Dates</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Ammount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>6</td>
-                <td>28, June, 2022</td>
-                <td>Elyana Jhon</td>
-                <td>Premimum</td>
-                <td>$2000.00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      i sould add here some charts to beautify the book off the home page dashboard with some real engine ideas and with also some soufian ideas names i sould get some money with also getting a job and being in the olmo stage to get a nice job with era skills and
+    </div>
+
+    
 </x-master-layout>

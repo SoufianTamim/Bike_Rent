@@ -24,9 +24,9 @@ class BookingController extends Controller
     
     public function indexAll()
     {
-        $bookings = Booking::join('products', 'bookings.product_id', '=', 'products.product_id')
-                        ->get(['bookings.Booking_id', 'products.name', 'products.price', 'products.category']);
-        return view('bikes', ['cartItems'=>$bookings]);
+        $bookings = Booking::paginate(15);
+
+        return view('booking.product', ['bookings'=>$bookings]);
     }
 
     public function cancel()
